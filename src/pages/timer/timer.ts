@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import {RoundProgressModule, RoundProgressConfig} from 'angular-svg-round-progressbar';
 
 @Component({
   selector: 'page-timer',
@@ -9,7 +9,12 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
 })
 export class TimerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _config: RoundProgressConfig) {
+    _config.setDefaults({
+      color: '#f00',
+      background: '#0f0',
+      
+    });
   }
 
   ionViewDidLoad() {
