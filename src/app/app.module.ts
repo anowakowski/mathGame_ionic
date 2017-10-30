@@ -6,12 +6,13 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { TimerPage } from '../pages/pages';
+import { TimerPage, DashboardPage } from '../pages/pages';
 
 @NgModule({
   declarations: [
     MyApp,
-    TimerPage
+    TimerPage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,8 @@ import { TimerPage } from '../pages/pages';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TimerPage  
+    TimerPage,
+    DashboardPage  
   ],
   providers: [
     StatusBar,
