@@ -8,15 +8,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TimerPage, DashboardPage } from '../pages/pages';
 
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+
 @NgModule({
   declarations: [
     MyApp,
     TimerPage,
     DashboardPage
+    
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    RoundProgressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,7 +31,8 @@ import { TimerPage, DashboardPage } from '../pages/pages';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
   ]
 })
 export class AppModule {}
