@@ -9,8 +9,8 @@
 
 <ion-content padding>
     <round-progress class="progress-wrapper" 
-    [current]="80"
-    [max]="100"
+    [current]="current"
+    [max]="10"
     [color]="'#45ccce'"
     [background]="'#eaeaea'"
     [radius]="80"
@@ -23,6 +23,7 @@
     [animation]="'easeInOutQuart'"
     [animationDelay]="0"
     (onRender)="doSomethingWithCurrentValue($event)"></round-progress>
+
 
 
 </ion-content>
