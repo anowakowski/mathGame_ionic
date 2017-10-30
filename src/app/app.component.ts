@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { DashboardPage } from '../pages/pages';
+import { DashboardPage, TimerPage } from '../pages/pages';
 
 
 @Component({
@@ -37,6 +37,6 @@ export class MyApp {
 
   goToStartGame(){
     const me = this;
-    me.nav.push(DashboardPage);
+    me.nav.push(TimerPage);
   }
 }
