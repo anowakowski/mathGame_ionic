@@ -15,13 +15,12 @@ export class TimerPage {
   private subscription: Subscription;
   private counter: Observable<number>;
   current:number = 0;
-  max:number = 10;
+  maxProgressNumber:number = 10;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _config: RoundProgressConfig) {
     _config.setDefaults({
       color: '#f00',
       background: '#0f0',
-      
     });
   }
 
@@ -31,7 +30,7 @@ export class TimerPage {
 
   doSomethingWithCurrentValue(progressBarValue){
     const me = this;
-    if (progressBarValue === me.max){
+    if (progressBarValue === me.maxProgressNumber){
       me.ngOnDestroy();
     }
   }
@@ -41,6 +40,7 @@ export class TimerPage {
     me.setCounter();
     me.subscription = me.counter.subscribe(sec => {
       console.log(me.current++);  
+      console.log(me.maxProgressNumber);  
     })
   }
 
