@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import {RoundProgressModule, RoundProgressConfig} from 'angular-svg-round-progressbar';
-
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import {Observable, Subscription } from 'rxjs/Rx';
+
+import {RoundProgressModule, RoundProgressConfig} from 'angular-svg-round-progressbar';
 
 @Component({
   selector: 'page-timer',
@@ -15,6 +15,7 @@ export class TimerPage {
   private subscription: Subscription;
   private counter: Observable<number>;
   current:number = 0;
+  max:number = 10;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _config: RoundProgressConfig) {
     _config.setDefaults({
@@ -29,29 +30,27 @@ export class TimerPage {
   }
 
   doSomethingWithCurrentValue(progressBarValue){
-    if (progressBarValue === 10){
-      this.ngOnDestroy();
+    const me = this;
+    if (progressBarValue === me.max){
+      me.ngOnDestroy();
     }
   }
 
   ngOnInit(){
-    this.setCounter();
-    this.subscription = this.counter.subscribe(sec=>{
-      console.log(this.current++);  
+    const me = this;
+    me.setCounter();
+    me.subscription = me.counter.subscribe(sec => {
+      console.log(me.current++);  
     })
   }
 
   setCounter(){
-    this.counter = Observable.interval(1000);
+    const me = this;
+    me.counter = Observable.interval(1000);
   }
 
   ngOnDestroy(){
-    this.subscription.unsubscribe();
+    const me = this;
+    me.subscription.unsubscribe();
   }
-
-  
-  
-
-  
-
 }
