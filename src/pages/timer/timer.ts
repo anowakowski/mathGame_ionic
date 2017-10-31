@@ -16,6 +16,8 @@ export class TimerPage {
   private counter: Observable<number>;
   current:number = 0;
   maxProgressNumber:number = 10;
+  semicircle: boolean = false;
+  radius: number = 125;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _config: RoundProgressConfig) {
     _config.setDefaults({
@@ -52,5 +54,20 @@ export class TimerPage {
   ngOnDestroy(){
     const me = this;
     me.subscription.unsubscribe();
+  }
+
+  getOverlayStyle() {
+    let isSemi = this.semicircle;
+    let transform = (isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
+
+    return {
+      'top': isSemi ? 'auto' : '50%',
+      'bottom': isSemi ? '5%' : 'auto',
+      'left': '50%',
+      'transform': transform,
+      '-moz-transform': transform,
+      '-webkit-transform': transform,
+      'font-size': this.radius / 3.5 + 'px'
+    };
   }
 }
