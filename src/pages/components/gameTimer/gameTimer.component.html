@@ -1,0 +1,18 @@
+<div class="progress-wrapper">
+  <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ maxProgressNumber }}</div>
+  <round-progress  
+  [current]="current"
+  [max]="maxProgressNumber"
+  [color]="'#45ccce'"
+  [background]="'#eaeaea'"
+  [radius]="80"
+  [stroke]="10"
+  [semicircle]="false"
+  [rounded]="true"
+  [clockwise]="false"
+  [responsive]="false"
+  [duration]="800"
+  [animation]="'easeInOutQuart'"
+  [animationDelay]="0"
+  (onRender)="doSomethingWithCurrentValue($event)"></round-progress>
+</div>
