@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { TimerPage, DashboardPage, GameTimerComponent, StartGamePage } from '../pages/pages';
+import { TimerPage, DashboardPage, GameTimerComponent, StartGamePage, GameTypePage, GameLevelPage } from '../pages/pages';
 
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
@@ -16,6 +16,8 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     TimerPage,
     DashboardPage,
     StartGamePage,
+    GameTypePage,
+    GameLevelPage,
 
     GameTimerComponent
   ],
@@ -29,7 +31,9 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     MyApp,
     TimerPage,
     DashboardPage,
-    StartGamePage  
+    StartGamePage,
+    GameTypePage,
+    GameLevelPage      
   ],
   providers: [
     StatusBar,

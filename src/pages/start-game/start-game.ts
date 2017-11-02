@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GameTypePage } from '../pages';
 
 @Component({
   selector: 'page-start-game',
@@ -14,4 +15,8 @@ export class StartGamePage {
     console.log('ionViewDidLoad StartGamePage');
   }
 
+  goToGameType(){
+    const me = this;
+    me.navCtrl.push(GameTypePage);
+  }
 }
