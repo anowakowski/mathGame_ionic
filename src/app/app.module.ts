@@ -6,8 +6,9 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { TimerPage, DashboardPage, GameTimerComponent, StartGamePage, GameTypePage, GameLevelPage } from '../pages/pages';
+import { HttpClientModule } from '@angular/common/http';
 
+import { TimerPage, DashboardPage, GameTimerComponent, StartGamePage, GameTypePage, GameLevelPage } from '../pages/pages';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { GameService } from '../shared/shared';
 
@@ -25,7 +26,8 @@ import { GameService } from '../shared/shared';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    RoundProgressModule
+    RoundProgressModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

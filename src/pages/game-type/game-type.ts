@@ -27,7 +27,6 @@ export class GameTypePage {
     });    
   }
 
-  tappedLevelItem($event, game){
-
+  tappedLevelItem(event, game){
   }
 }

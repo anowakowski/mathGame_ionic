@@ -4,7 +4,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <ion-list >
-        <button ion-item *ngFor="let game from games" (click)="tappedLevelItem($event, game)">{{game.name}}</button>
+    <ion-list>
+        <button ion-item *ngFor="let gameType of gamesType" (click)="tappedLevelItem($event, gameType)">{{gameType.name}}</button>
+        
     </ion-list>  
 </ion-content>
