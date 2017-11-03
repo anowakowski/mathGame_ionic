@@ -14,4 +14,8 @@ export class GameTypePage {
     console.log('ionViewDidLoad GameTypePage');
   }
 
+  gotToGameLevel(){
+    
+  }
+
 }
