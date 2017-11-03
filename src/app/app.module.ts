@@ -9,6 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TimerPage, DashboardPage, GameTimerComponent, StartGamePage, GameTypePage, GameLevelPage } from '../pages/pages';
 
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { GameService } from '../shared/shared';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    
+    GameService
   ]
 })
 export class AppModule {}
