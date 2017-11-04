@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GameTypePage } from '../pages';
 
 @Component({
   selector: 'page-dashboard',
@@ -12,6 +13,11 @@ export class DashboardPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
+  }
+
+  goToGameInfo(){
+    const me = this;
+    me.navCtrl.push(GameTypePage)
   }
 
 }

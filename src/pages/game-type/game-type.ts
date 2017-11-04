@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GameService } from '../../shared/shared';
+import { GameLevelPage } from '../pages';
 
 @Component({
   selector: 'page-game-type',
@@ -8,7 +9,7 @@ import { GameService } from '../../shared/shared';
 })
 export class GameTypePage {
 
-  gameType: any[];
+  gamesType: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private gameService: GameService) {
   }
@@ -23,10 +24,14 @@ export class GameTypePage {
   getGameType(){
     const me = this;
     me.gameService.getGameType().then(response => {
-      me.gameType = response;
+      me.gamesType = response;
     });    
   }
 
   tappedLevelItem(event, game){
+    const me = this;
+    me.navCtrl.push(GameLevelPage, game);
   }
+
+  
 }

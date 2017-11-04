@@ -3,15 +3,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GameTypePage } from '../pages';
 
 @Component({
-  selector: 'page-start-game',
-  templateUrl: 'start-game.html',
+  selector: 'page-game-info',
+  templateUrl: 'game-info.html',
 })
-export class StartGamePage {
+export class GameInfoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StartGamePage');
+    console.log('ionViewDidLoad GameInfoPage');
+  }
+
+  goToGameInfo(){
+    const me = this;
+    me.navCtrl.push(GameTypePage);
   }
 }

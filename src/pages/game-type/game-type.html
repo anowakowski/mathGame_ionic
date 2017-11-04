@@ -3,9 +3,17 @@
     <ion-title>gameType</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-    <ion-list>
-        <button ion-item *ngFor="let gameType of gamesType" (click)="tappedLevelItem($event, gameType)">{{gameType.name}}</button>
-        
-    </ion-list>  
+<ion-content>
+<app-gameTimer></app-gameTimer>
+    <ion-card>
+      <ion-card-header>
+        First, tap game type
+      </ion-card-header>
+      <ion-card-content>
+          <ion-list>
+              <button ion-item *ngFor="let gameType of gamesType" (click)="tappedLevelItem($event, gameType)">{{gameType.name}}</button>
+          </ion-list>          
+      </ion-card-content>
+    </ion-card>
+
 </ion-content>
