@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GameTypePage } from '../pages';
+import { GameTypePage, StartGamePage } from '../pages';
 
 @Component({
   selector: 'page-game-info',
@@ -18,5 +18,10 @@ export class GameInfoPage {
   goToGameInfo(){
     const me = this;
     me.navCtrl.push(GameTypePage);
+  }
+
+  goToStartGame(){
+    const me = this;
+    me.navCtrl.push(StartGamePage);
   }
 }

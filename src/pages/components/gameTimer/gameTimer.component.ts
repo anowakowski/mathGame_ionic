@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
@@ -12,6 +12,8 @@ import {RoundProgressModule, RoundProgressConfig} from 'angular-svg-round-progre
   
 })
 export class GameTimerComponent{
+  @Input('isStaticTimer')isStaticTimer: boolean = false;
+  @Input('currentNumber')currentNumberForStaticTimer: number;
 
   private subscription: Subscription;
   private counter: Observable<number>;
@@ -30,10 +32,24 @@ export class GameTimerComponent{
 
   ngOnInit(){
     const me = this;
+    if (me.isStaticTimer){
+      me.onStartStaticCounter();
+    }else{
+      me.onStartCountdownCounter();
+    }
+  }
+
+  onStartStaticCounter(){
+    const me = this;
+    me.maxProgressNumber = 3;
+    me.current = me.currentNumberForStaticTimer;
+  }
+
+  onStartCountdownCounter(){
+    const me = this;
     me.setCounter();
     me.subscription = me.counter.subscribe(sec => {
-      console.log(me.current++);  
-      console.log(me.maxProgressNumber);  
+      me.current++
     })
   }
 
@@ -44,7 +60,9 @@ export class GameTimerComponent{
 
   ngOnDestroy(){
     const me = this;
-    me.subscription.unsubscribe();
+    if (!me.isStaticTimer){
+      me.subscription.unsubscribe();
+    }
   }
 
   getOverlayStyle() {

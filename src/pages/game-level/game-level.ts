@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StartGamePage, GameInfoPage } from '../pages';
 
 @Component({
   selector: 'page-game-level',
@@ -12,6 +13,11 @@ export class GameLevelPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GameLevelPage');
+  }
+
+  tappedGameLevel(gameLevel){
+    const me = this;
+        me.navCtrl.push(GameInfoPage, {gameLevel: gameLevel});
   }
 
 }

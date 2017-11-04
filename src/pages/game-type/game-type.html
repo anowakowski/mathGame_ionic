@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-<app-gameTimer></app-gameTimer>
+<app-gameTimer [isStaticTimer]="true" [currentNumber]="1"></app-gameTimer>
     <ion-card>
       <ion-card-header>
         First, tap game type
@@ -13,6 +13,14 @@
           <ion-list>
               <button ion-item *ngFor="let gameType of gamesType" (click)="tappedLevelItem($event, gameType)">{{gameType.name}}</button>
           </ion-list>          
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        Next,
+      </ion-card-header>
+      <ion-card-content>
+        you need to choose a game level
       </ion-card-content>
     </ion-card>
 

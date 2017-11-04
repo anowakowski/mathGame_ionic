@@ -9,6 +9,7 @@ import { GameTypePage } from '../pages';
 export class StartGamePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log(navParams.data.parameterData);
   }
 
   ionViewDidLoad() {
