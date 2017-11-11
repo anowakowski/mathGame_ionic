@@ -15,4 +15,8 @@ export class StartGamePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StartGamePage');
   }
+
+  setUpMathOperation(){
+    
+  }
 }

@@ -32,6 +32,4 @@ export class GameTypePage {
     const me = this;
     me.navCtrl.push(GameLevelPage, game);
   }
-
-  
 }

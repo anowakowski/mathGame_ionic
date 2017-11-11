@@ -7,12 +7,14 @@ import { GameTypePage, StartGamePage } from '../pages';
   templateUrl: 'game-info.html',
 })
 export class GameInfoPage {
-
+  test: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.test = navParams.data;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GameInfoPage');
+    
+    console.log(this.test);
   }
 
   goToGameInfo(){

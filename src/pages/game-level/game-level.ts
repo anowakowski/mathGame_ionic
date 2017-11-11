@@ -7,8 +7,9 @@ import { StartGamePage, GameInfoPage } from '../pages';
   templateUrl: 'game-level.html',
 })
 export class GameLevelPage {
-
+  private gameType: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.gameType=navParams.data;
   }
 
   ionViewDidLoad() {
@@ -17,7 +18,6 @@ export class GameLevelPage {
 
   tappedGameLevel(gameLevel){
     const me = this;
-        me.navCtrl.push(GameInfoPage, {gameLevel: gameLevel});
+    me.navCtrl.push(GameInfoPage, {gameLevel: gameLevel, gameType: me.gameType});
   }
-
 }
