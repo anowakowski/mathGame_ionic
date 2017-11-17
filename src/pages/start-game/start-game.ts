@@ -9,11 +9,13 @@ import { MathematicOperationService } from '../../shared/shared';
   templateUrl: 'start-game.html',
 })
 export class StartGamePage {
-  randomNumber1: number = 0;
-  randomNumber2: number = 0;
+  oprationRandomNumber1: number = 0;
+  operationRandomNumber2: number = 0;
   correctResult: number = 0;
   correctResultPosition: number = 1;
-
+  fakeDetailsResult1:number = 0;
+  fakeResult2:number = 0;
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -30,13 +32,18 @@ export class StartGamePage {
     const me = this;
     me.setRandomNumber();
 
-    me.correctResult = me.randomNumber1 + me.randomNumber2;
+    me.correctResult = me.oprationRandomNumber1 + me.operationRandomNumber2;
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
+    me.fakeDetailsResult1 = me.mathOperationService.getRandomNumberToMath();
+    me.fakeResult2 = me.mathOperationService.getRandomNumberToMath();
+
+    me.fakeDetailsResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
+    me.fakeResult2 = me.mathOperationService.checkFakeResult(me.correctResult, me.fakeResult2);
   }
 
   private setRandomNumber():void {
     const me = this;
-    me.randomNumber1 = me.mathOperationService.getRandomNumberToMath();
-    me.randomNumber2 = me.mathOperationService.getRandomNumberToMath();
+    me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
+    me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
   }
 }
