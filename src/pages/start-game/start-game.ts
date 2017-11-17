@@ -29,8 +29,8 @@ export class StartGamePage {
 
   private setRandomNumber():void {
     const me = this;
-    me.randomNumber1 = Math.random();
-    me.randomNumber2 = Math.random();
+    me.randomNumber1 = me.getRandomNumber();
+    me.randomNumber2 = me.getRandomNumber();
   }
 
   private getRandomNumber():number{
