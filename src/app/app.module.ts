@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TimerPage, DashboardPage, GameTimerComponent, StartGamePage, GameTypePage, GameLevelPage, GameInfoPage } from '../pages/pages';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
-import { GameService } from '../shared/shared';
+import { GameService, MathematicOperationService } from '../shared/shared';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,8 @@ import { GameService } from '../shared/shared';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GameService
+    GameService,
+    MathematicOperationService
   ]
 })
 export class AppModule {}
