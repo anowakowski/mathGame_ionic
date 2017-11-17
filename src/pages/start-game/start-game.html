@@ -4,11 +4,29 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-    <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
-    <p>Math operation</p>
-    <p>{{randomNumber1}} + {{randomNumber2}}</p>
-    <p>Correct answer</p>
-    <button ion-button round >correctResult</button>
-    <button ion-button round >53</button>
-    <button ion-button round >62</button>
+  <ion-card>
+    <ion-card-header>
+      Solve the math operation
+    </ion-card-header>
+    <ion-card-content>
+        <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
+        <hr/>
+
+        Math operation
+        {{randomNumber1}} + {{randomNumber2}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Choose correct answer
+    </ion-card-header>
+    <ion-card-content>
+        <button *ngIf="correctResultPosition == 1" ion-button full round>{{correctResult}} - correct</button>
+        <button *ngIf="correctResultPosition != 1" ion-button full round>51</button>
+        <button *ngIf="correctResultPosition == 2" ion-button full round>{{correctResult}}</button>
+        <button *ngIf="correctResultPosition != 2" ion-button full round>52</button>
+        <button *ngIf="correctResultPosition == 3" ion-button full round>{{correctResult}}</button>
+        <button *ngIf="correctResultPosition != 3" ion-button full round>54</button>      
+    </ion-card-content>
+  </ion-card>  
 </ion-content>
