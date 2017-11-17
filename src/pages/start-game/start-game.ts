@@ -32,4 +32,8 @@ export class StartGamePage {
     me.randomNumber1 = Math.random();
     me.randomNumber2 = Math.random();
   }
+
+  private getRandomNumber():number{
+    return Math.floor(Math.random() * 100) + 1;
+  }
 }
