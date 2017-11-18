@@ -13,9 +13,9 @@ export class StartGamePage {
   operationRandomNumber2: number = 0;
   correctResult: number = 0;
   correctResultPosition: number = 1;
-  fakeDetailsResult1:number = 0;
+  fakeResult1:number = 0;
   fakeResult2:number = 0;
-  fakeDetailsResult1Position:number;
+  fakeResult1Position:number;
   fakeResult2Position:number;
 
   constructor(
@@ -39,11 +39,10 @@ export class StartGamePage {
     me.correctResult = me.oprationRandomNumber1 + me.operationRandomNumber2;
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
 
-    me.fakeDetailsResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
-    me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeDetailsResult1Position);
+    me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
+    me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeResult1Position);
 
-    me.fakeDetailsResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
-    let fakeResult = me.mathOperationService.getRandomNumberToMath();
-    me.fakeResult2 = me.mathOperationService.prepareRandomNumber(me.correctResult, 100);
+    me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
+    me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
   }
 }

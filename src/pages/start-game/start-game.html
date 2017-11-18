@@ -11,9 +11,7 @@
     <ion-card-content>
         <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
         <hr/>
-
-        Math operation
-        {{oprationRandomNumber1}} + {{operationRandomNumber2}}
+        <span class="mathOperation-font">Math operation {{oprationRandomNumber1}} + {{operationRandomNumber2}}</span>
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -21,17 +19,20 @@
       Choose correct answer
     </ion-card-header>
     <ion-card-content>
-        <button *ngIf="correctResultPosition == 1" ion-button full round>{{correctResult}} - correct</button>
-        <button *ngIf="fakeDetailsResult1Position == 1" ion-button full round>{{fakeDetailsResult1}} - fakeDetailsResult1</button>
-        <button *ngIf="fakeResult2Position == 1" ion-button full round>{{fakeResult2}} - fakeResult2</button>
-        
-        <button *ngIf="correctResultPosition == 2" ion-button full round>{{correctResult}} - correct</button>
-        <button *ngIf="fakeDetailsResult1Position == 2" ion-button full round>{{fakeDetailsResult1}} - fakeDetailsResult1</button>
-        <button *ngIf="fakeResult2Position == 2" ion-button full round>{{fakeResult2}} - fakeResult2</button>
+      <ion-buttons end>
+          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 1" ion-button full round>{{correctResult}} - correct</button>
+          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 1" ion-button full round>{{fakeResult1}} - fakeResult1</button>
+          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 1" ion-button full round>{{fakeResult2}} - fakeResult2</button>
+          
+          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 2" ion-button full round>{{correctResult}} - correct</button>
+          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 2" ion-button full round>{{fakeResult1}} - fakeResult1</button>
+          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 2" ion-button full round>{{fakeResult2}} - fakeResult2</button>
+  
+          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 3" ion-button full round>{{correctResult}} - correct</button>
+          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 3" ion-button full round>{{fakeResult1}} - fakeResult1</button>      
+          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 3" ion-button full round>{{fakeResult2}} - fakeResult2</button>
+      </ion-buttons>
 
-        <button *ngIf="correctResultPosition == 3" ion-button full round>{{correctResult}} - correct</button>
-        <button *ngIf="fakeDetailsResult1Position == 3" ion-button full round>{{fakeDetailsResult1}} - fakeDetailsResult1</button>      
-        <button *ngIf="fakeResult2Position == 3" ion-button full round>{{fakeResult2}} - fakeResult2</button>
     </ion-card-content>
   </ion-card>  
 </ion-content>

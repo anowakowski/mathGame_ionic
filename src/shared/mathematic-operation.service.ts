@@ -13,37 +13,40 @@ export class MathematicOperationService {
         return this.getRandomNumber(3);
     }
 
-    public getRandomNumber(range:number):number{
-        return Math.floor(Math.random() * range) + 1;
-    }
-
-    public prepareMoreDetailFakeResult(currentResult: number){
+    public prepareMoreDetailFakeResult(currentResult: number, fakeResult1:number = null): number{
         const me = this;
+        let result: number = 0;
         if (currentResult > 10){
-          return currentResult - this.getRandomNumber(3);
+          result = currentResult - this.prepareRandomNumber(currentResult, 3, fakeResult1);
         } else if(currentResult > 25){
-          return currentResult + this.getRandomNumber(5);
+          result = currentResult + this.prepareRandomNumber(currentResult, 5, fakeResult1);
         } else if(currentResult > 50){
-          return currentResult - this.getRandomNumber(7);
+          result = currentResult - this.prepareRandomNumber(currentResult, 7, fakeResult1);
         } else if(currentResult > 50 && currentResult < 90){
-          return currentResult - this.getRandomNumber(9);
+          result = currentResult - this.prepareRandomNumber(currentResult, 9, fakeResult1);
         } else {
-          return currentResult - this.getRandomNumber(5);
+          result = currentResult - this.prepareRandomNumber(currentResult, 5, fakeResult1);
         }
+
+        return result;
     }
 
-  public prepareRandomNumber(correctResultToCheck:number, range:number, fakeDetailResultToCheck:number = null): number{
+  public prepareRandomNumber(correctResultToCheck:number, range:number, fakeResult1:number = null): number{
     const me = this;
     let randomNumber = me.getRandomNumber(range);
-    if (fakeDetailResultToCheck !== null){
-        if (correctResultToCheck === randomNumber || fakeDetailResultToCheck === randomNumber){
+    if (fakeResult1 !== null){
+        if (correctResultToCheck === randomNumber || fakeResult1 === randomNumber){
             let newFakeFaluer = me.getRandomNumber(range);
-            return me.prepareRandomNumber(correctResultToCheck, range, fakeDetailResultToCheck);
+            return me.prepareRandomNumber(correctResultToCheck, range, fakeResult1);
         }
     } else if (correctResultToCheck === randomNumber){
         let newFakeFaluer = me.getRandomNumber(range);
         return me.prepareRandomNumber(correctResultToCheck, range);
     }
     return randomNumber;
+  }
+
+  private getRandomNumber(range:number):number{
+    return Math.floor(Math.random() * range) + 1;
   }
 }
