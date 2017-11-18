@@ -11,7 +11,8 @@
     <ion-card-content>
         <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
         <hr/>
-        <span class="mathOperation-font">Math operation 
+        <ion-icon name="calculator" color=""></ion-icon>
+        <span class="mathOperation-font">Math operation
           <span><b>{{oprationRandomNumber1}}</b> <span class="mathOperationSign-font">+</span> <b>{{operationRandomNumber2}}</b></span>
         </span>
     </ion-card-content>
@@ -31,10 +32,12 @@
           </button>
       </ion-buttons>
     </ion-card-content>
-  </ion-card>  
-  <ion-card>
-    <ion-card-header>
-        Step 1, <span *ngIf="chosedNumber">{{chosedNumber}}</span>
-    </ion-card-header>
   </ion-card>
+  <ion-card *ngIf="chosedNumber">
+      <ion-chip class="chosedNumber-chip" #chosenNumberResult>
+          <ion-icon name="calculator" color=""></ion-icon>
+          <ion-label>Your choise <b>{{chosedNumber}}</b> tap button to next </ion-label>
+          <button ion-button clear><ion-icon name="ios-arrow-dropright-circle"></ion-icon></button>   
+      </ion-chip>
+  </ion-card>  
 </ion-content>

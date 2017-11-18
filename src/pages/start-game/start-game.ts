@@ -41,7 +41,7 @@ export class StartGamePage {
   setUpMathOperation(){
     const me = this;
 
-    this.setRandomNumberToCalculations(me);
+    me.setRandomNumberToCalculations();
 
     me.correctResult = me.prepareClculations();
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
@@ -52,23 +52,30 @@ export class StartGamePage {
     me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
     me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
 
-    this.prepareAnswerButtons(me);
+    me.prepareAnswerButtons();
+  }
+
+  tapConfirmAndGoToNext(event){
+    
   }
 
   tappedAnswerButton(item) {
     this.selected = (this.selected === item ? null : item); 
+    this.chosedNumber = item;
   };
  
   isActiveButton(item) {
       return this.selected === item;
   };
 
-  private setRandomNumberToCalculations(me: this) {
+  private setRandomNumberToCalculations() {
+    const me = this;
     me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
     me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
   }
 
-  private prepareAnswerButtons(me: this) {
+  private prepareAnswerButtons() {
+    const me = this;
     let answers: Array<AnswerModel> = new Array<AnswerModel>() ;
     answers.push(new AnswerModel("correctResult", me.correctResult, me.correctResultPosition));
     answers.push(new AnswerModel("fakeResult1", me.fakeResult1, me.fakeResult1Position));
