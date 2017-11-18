@@ -17,12 +17,14 @@ export class StartGamePage {
   fakeResult2:number = 0;
   fakeResult1Position:number;
   fakeResult2Position:number;
+  paramsData:any;
+  mathSign:string;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private mathOperationService: MathematicOperationService) {
-    console.log(navParams.data.parameterData);
+    this.paramsData = navParams.data;
   }
 
   ionViewDidLoad() {
@@ -33,10 +35,9 @@ export class StartGamePage {
   setUpMathOperation(){
     const me = this;
 
-    me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
-    me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
+    this.setRandomNumberToCalculations(me);
 
-    me.correctResult = me.oprationRandomNumber1 + me.operationRandomNumber2;
+    me.correctResult = me.prepareClculations();
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
 
     me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
@@ -44,5 +45,28 @@ export class StartGamePage {
 
     me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
     me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
+  }
+
+  private setRandomNumberToCalculations(me: this) {
+    me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
+    me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
+  }
+
+  private prepareClculations():number{
+    const me = this;
+    let gameType: any = me.paramsData.gameType;
+    if (gameType === "Addition"){
+      me.mathSign="+";
+      return me.oprationRandomNumber1 + me.operationRandomNumber2;
+    } else if(gameType === "Subtraction"){
+      me.mathSign="-";
+      return me.oprationRandomNumber1 - me.operationRandomNumber2;
+    } else if(gameType === "Multiplication"){
+      me.mathSign="*";
+      return me.oprationRandomNumber1 * me.operationRandomNumber2;
+    } else if(gameType === "Division"){
+      me.mathSign=":";
+      return me.oprationRandomNumber1 / me.operationRandomNumber2;
+    }
   }
 }
