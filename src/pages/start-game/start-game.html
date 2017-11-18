@@ -22,23 +22,23 @@
     </ion-card-header>
     <ion-card-content>
       <ion-buttons end>
-          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 1" ion-button full round>{{correctResult}} - correct</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 1" ion-button full round>{{fakeResult1}} - fakeResult1</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 1" ion-button full round>{{fakeResult2}} - fakeResult2</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="correctResultPosition == 1" (click)="tappedAnswer($event, correctResult)" ion-button full round>{{correctResult}} - correct</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="fakeResult1Position == 1" (click)="tappedAnswer($event, fakeResult1)" ion-button full round>{{fakeResult1}} - fakeResult1</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="fakeResult2Position == 1" (click)="tappedAnswer($event, fakeResult2)" ion-button full round>{{fakeResult2}} - fakeResult2</button>
           
-          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 2" ion-button full round>{{correctResult}} - correct</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 2" ion-button full round>{{fakeResult1}} - fakeResult1</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 2" ion-button full round>{{fakeResult2}} - fakeResult2</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="correctResultPosition == 2" (click)="tappedAnswer($event, correctResult)" ion-button full round>{{correctResult}} - correct</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="fakeResult1Position == 2" (click)="tappedAnswer($event, fakeResult1)" ion-button full round>{{fakeResult1}} - fakeResult1</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="fakeResult2Position == 2" (click)="tappedAnswer($event, fakeResult2)" ion-button full round>{{fakeResult2}} - fakeResult2</button>
   
-          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 3" ion-button full round>{{correctResult}} - correct</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 3" ion-button full round>{{fakeResult1}} - fakeResult1</button>      
-          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 3" ion-button full round>{{fakeResult2}} - fakeResult2</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="correctResultPosition == 3" (click)="tappedAnswer($event, correctResult)" ion-button full round>{{correctResult}} - correct</button>
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="fakeResult1Position == 3" (click)="tappedAnswer($event, fakeResult1)" ion-button full round>{{fakeResult1}} - fakeResult1</button>      
+          <button [class.chosedButton]="chosedNumber" [class.unchosedButton]="!chosedNumber" class="mathOperationResult-Button" *ngIf="fakeResult2Position == 3" (click)="tappedAnswer($event, fakeResult2)" ion-button full round>{{fakeResult2}} - fakeResult2</button>
       </ion-buttons>
     </ion-card-content>
   </ion-card>  
   <ion-card>
     <ion-card-header>
-        Step 1
+        Step 1, <span *ngIf="chosedNumber">{{chosedNumber}}</span>
     </ion-card-header>
   </ion-card>
 </ion-content>

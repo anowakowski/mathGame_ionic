@@ -19,6 +19,7 @@ export class StartGamePage {
   fakeResult2Position:number;
   paramsData:any;
   mathSign:string;
+  chosedNumber:number;
 
   constructor(
     public navCtrl: NavController, 
@@ -45,6 +46,11 @@ export class StartGamePage {
 
     me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
     me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
+  }
+
+  tappedAnswer(event, chosedNumber){
+    const me = this;
+    me.chosedNumber = chosedNumber;
   }
 
   private setRandomNumberToCalculations(me: this) {
