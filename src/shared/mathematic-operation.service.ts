@@ -16,16 +16,16 @@ export class MathematicOperationService {
     public prepareMoreDetailFakeResult(currentResult: number, fakeResult1:number = null): number{
         const me = this;
         let result: number = 0;
-        if (currentResult > 10){
+        if (currentResult > 10 && currentResult < 25){
           result = currentResult - this.prepareRandomNumber(currentResult, 3, fakeResult1);
-        } else if(currentResult > 25){
-          result = currentResult + this.prepareRandomNumber(currentResult, 5, fakeResult1);
-        } else if(currentResult > 50){
-          result = currentResult - this.prepareRandomNumber(currentResult, 7, fakeResult1);
-        } else if(currentResult > 50 && currentResult < 90){
-          result = currentResult - this.prepareRandomNumber(currentResult, 9, fakeResult1);
+        } else if(currentResult > 25 && currentResult < 50){
+          result = currentResult + this.prepareRandomNumber(currentResult, 7, fakeResult1);
+        } else if(currentResult > 50 && currentResult < 70){
+          result = currentResult - this.prepareRandomNumber(currentResult, 11, fakeResult1);
+        } else if(currentResult > 70 && currentResult < 90){
+            result = currentResult - this.prepareRandomNumber(currentResult, 15, fakeResult1);          
         } else {
-          result = currentResult - this.prepareRandomNumber(currentResult, 5, fakeResult1);
+          result = currentResult - this.prepareRandomNumber(currentResult, 25, fakeResult1);
         }
 
         return result;
