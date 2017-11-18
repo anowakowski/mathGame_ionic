@@ -21,18 +21,14 @@
       Choose correct answer
     </ion-card-header>
     <ion-card-content>
-      <ion-buttons end>
-          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 1" (click)="tappedAnswerButton(correctResult)" [ngClass]="{chosedButton: isActiveButton(correctResult)}" ion-button full round>{{correctResult}}</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 1" (click)="tappedAnswerButton(fakeResult1)" [ngClass]="{chosedButton: isActiveButton(fakeResult1)}" ion-button full round>{{fakeResult1}}</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 1" (click)="tappedAnswerButton(fakeResult2)" [ngClass]="{chosedButton: isActiveButton(fakeResult2)}" ion-button full round>{{fakeResult2}}</button>
-          
-          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 2" (click)="tappedAnswerButton(correctResult)" [ngClass]="{chosedButton: isActiveButton(correctResult)}" ion-button full round>{{correctResult}}</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 2" (click)="tappedAnswerButton(fakeResult1)" [ngClass]="{chosedButton: isActiveButton(fakeResult1)}" ion-button full round>{{fakeResult1}}</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 2" (click)="tappedAnswerButton(fakeResult2)" [ngClass]="{chosedButton: isActiveButton(fakeResult2)}" ion-button full round>{{fakeResult2}}</button>
-  
-          <button class="mathOperationResult-Button" *ngIf="correctResultPosition == 3" (click)="tappedAnswerButton(correctResult)" [ngClass]="{chosedButton: isActiveButton(correctResult)}" ion-button full round>{{correctResult}}</button>
-          <button class="mathOperationResult-Button" *ngIf="fakeResult1Position == 3" (click)="tappedAnswerButton(fakeResult1)" [ngClass]="{chosedButton: isActiveButton(fakeResult1)}" ion-button full round>{{fakeResult1}}</button>      
-          <button class="mathOperationResult-Button" *ngIf="fakeResult2Position == 3" (click)="tappedAnswerButton(fakeResult2)" [ngClass]="{chosedButton: isActiveButton(fakeResult2)}" ion-button full round>{{fakeResult2}}</button>
+      <ion-buttons *ngFor="let answer of answerButtons" end>
+          <button 
+            class="mathOperationResult-Button"  
+            [ngClass]="{chosedButton: isActiveButton(answer.value)}" 
+            (click)="tappedAnswerButton(answer.value)" 
+            ion-button full round>
+            {{answer.value}}
+          </button>
       </ion-buttons>
     </ion-card-content>
   </ion-card>  

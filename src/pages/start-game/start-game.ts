@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GameTypePage } from '../pages';
 import { retry } from 'rxjs/operator/retry';
 import { MathematicOperationService } from '../../shared/shared';
+import { AnswerModel } from './answerModel';
+
+import * as _ from 'lodash';
 
 @Component({
   selector: 'page-start-game',
@@ -20,10 +23,9 @@ export class StartGamePage {
   paramsData:any;
   mathSign:string;
   chosedNumber:number;
-
-  list:any;
   selected :any;
-  
+  answerButtons: Array<AnswerModel>;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -43,12 +45,14 @@ export class StartGamePage {
 
     me.correctResult = me.prepareClculations();
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
-
+    
     me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
     me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeResult1Position);
-
+   
     me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
     me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
+
+    this.prepareAnswerButtons(me);
   }
 
   tappedAnswerButton(item) {
@@ -62,6 +66,14 @@ export class StartGamePage {
   private setRandomNumberToCalculations(me: this) {
     me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
     me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
+  }
+
+  private prepareAnswerButtons(me: this) {
+    let answers: Array<AnswerModel> = new Array<AnswerModel>() ;
+    answers.push(new AnswerModel("correctResult", me.correctResult, me.correctResultPosition));
+    answers.push(new AnswerModel("fakeResult1", me.fakeResult1, me.fakeResult1Position));
+    answers.push(new AnswerModel("fakeResult2", me.fakeResult2, me.fakeResult2Position));
+    me.answerButtons = _.sortBy(answers, a => a.position);
   }
 
   private prepareClculations():number{
