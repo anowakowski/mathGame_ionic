@@ -21,6 +21,9 @@ export class StartGamePage {
   mathSign:string;
   chosedNumber:number;
 
+  list:any;
+  selected :any;
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -48,10 +51,13 @@ export class StartGamePage {
     me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
   }
 
-  tappedAnswer(event, chosedNumber){
-    const me = this;
-    me.chosedNumber = chosedNumber;
-  }
+  tappedAnswerButton(item) {
+    this.selected = (this.selected === item ? null : item); 
+  };
+ 
+  isActiveButton(item) {
+      return this.selected === item;
+  };
 
   private setRandomNumberToCalculations(me: this) {
     me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
