@@ -7,7 +7,7 @@ export class GameService {
 
     getGameType(){
         const me = this;
-        return me.http.get('assets/data/games.json').toPromise().then(response => response as any[]);
+        return me.http.get('assets/data/gameTypes.json').toPromise().then(response => response as any[]);
     }
 }
 
