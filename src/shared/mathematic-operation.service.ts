@@ -18,32 +18,32 @@ export class MathematicOperationService {
     }
 
     public prepareMoreDetailFakeResult(currentResult: number){
+        const me = this;
         if (currentResult > 10){
-          return currentResult - 3;
+          return currentResult - this.getRandomNumber(3);
         } else if(currentResult > 25){
-          return currentResult + 5;
+          return currentResult + this.getRandomNumber(5);
         } else if(currentResult > 50){
-          return currentResult - 7;
+          return currentResult - this.getRandomNumber(7);
         } else if(currentResult > 50 && currentResult < 90){
-          return currentResult - 9;
+          return currentResult - this.getRandomNumber(9);
         } else {
-          return currentResult - 4;
+          return currentResult - this.getRandomNumber(5);
         }
     }
 
-  public checkFakeResult(correctResultToCheck:number, range:number, fakeDetailResultToCheck:number = null): number{
+  public prepareRandomNumber(correctResultToCheck:number, range:number, fakeDetailResultToCheck:number = null): number{
     const me = this;
     let randomNumber = me.getRandomNumber(range);
     if (fakeDetailResultToCheck !== null){
         if (correctResultToCheck === randomNumber || fakeDetailResultToCheck === randomNumber){
             let newFakeFaluer = me.getRandomNumber(range);
-            return me.checkFakeResult(correctResultToCheck, range, fakeDetailResultToCheck);
+            return me.prepareRandomNumber(correctResultToCheck, range, fakeDetailResultToCheck);
         }
     } else if (correctResultToCheck === randomNumber){
         let newFakeFaluer = me.getRandomNumber(range);
-        return me.checkFakeResult(correctResultToCheck, range);
+        return me.prepareRandomNumber(correctResultToCheck, range);
     }
-
     return randomNumber;
   }
 }

@@ -39,11 +39,11 @@ export class StartGamePage {
     me.correctResult = me.oprationRandomNumber1 + me.operationRandomNumber2;
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
 
-    me.fakeDetailsResult1Position = me.mathOperationService.checkFakeResult(me.correctResultPosition, 3);
-    me.fakeResult2Position = me.mathOperationService.checkFakeResult(me.correctResultPosition, 3, me.fakeDetailsResult1Position);
+    me.fakeDetailsResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
+    me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeDetailsResult1Position);
 
     me.fakeDetailsResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
     let fakeResult = me.mathOperationService.getRandomNumberToMath();
-    me.fakeResult2 = me.mathOperationService.checkFakeResult(me.correctResult, 100);
+    me.fakeResult2 = me.mathOperationService.prepareRandomNumber(me.correctResult, 100);
   }
 }
