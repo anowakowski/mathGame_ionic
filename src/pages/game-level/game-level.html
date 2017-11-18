@@ -11,9 +11,7 @@
       </ion-card-header>
       <ion-card-content>
         please, choose your start level and run a game.
-        <button ion-button full (click)="tappedGameLevel('level1')">Level 1</button>
-        <button ion-button full >Level 2</button>
-        <button ion-button full >Level 3</button>
+        <button *ngFor="let gameLevel of gameLevels" ion-button full (click)="tappedGameLevel(gameLevel)">{{gameLevel.name}}</button>
       </ion-card-content>
     </ion-card>
     <ion-card>

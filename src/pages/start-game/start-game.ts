@@ -54,17 +54,17 @@ export class StartGamePage {
 
   private prepareClculations():number{
     const me = this;
-    let gameType: any = me.paramsData.gameType;
-    if (gameType === "Addition"){
+    let gameTypeName: any = me.paramsData.gameType.name;
+    if (gameTypeName === "Addition"){
       me.mathSign="+";
       return me.oprationRandomNumber1 + me.operationRandomNumber2;
-    } else if(gameType === "Subtraction"){
+    } else if(gameTypeName === "Subtraction"){
       me.mathSign="-";
       return me.oprationRandomNumber1 - me.operationRandomNumber2;
-    } else if(gameType === "Multiplication"){
+    } else if(gameTypeName === "Multiplication"){
       me.mathSign="*";
       return me.oprationRandomNumber1 * me.operationRandomNumber2;
-    } else if(gameType === "Division"){
+    } else if(gameTypeName === "Division"){
       me.mathSign=":";
       return me.oprationRandomNumber1 / me.operationRandomNumber2;
     }
