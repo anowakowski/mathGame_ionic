@@ -49,4 +49,5 @@ export class MathematicOperationService {
   private getRandomNumber(range:number):number{
     return Math.floor(Math.random() * range) + 1;
   }
+  
 }

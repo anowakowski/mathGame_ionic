@@ -41,7 +41,8 @@ export class StartGamePage {
   setUpMathOperation(){
     const me = this;
 
-    me.setRandomNumberToCalculations();
+    me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
+    me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
 
     me.correctResult = me.prepareClculations();
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
@@ -56,7 +57,9 @@ export class StartGamePage {
   }
 
   tapConfirmAndGoToNext(){
-
+    this.verifyChosedNumber();
+    this.setPageIteration();
+    this.goToNextPage();
   }
 
   tappedAnswerButton(item) {
@@ -68,10 +71,16 @@ export class StartGamePage {
       return this.selected === item;
   };
 
-  private setRandomNumberToCalculations() {
-    const me = this;
-    me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
-    me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
+  private goToNextPage(): void {
+    
+  }
+  
+  private verifyChosedNumber(): void {
+    
+  }
+
+  private setPageIteration(): void{
+
   }
 
   private prepareAnswerButtons() {
