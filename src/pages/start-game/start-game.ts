@@ -55,8 +55,8 @@ export class StartGamePage {
     me.prepareAnswerButtons();
   }
 
-  tapConfirmAndGoToNext(event){
-    
+  tapConfirmAndGoToNext(){
+
   }
 
   tappedAnswerButton(item) {

@@ -34,10 +34,11 @@
     </ion-card-content>
   </ion-card>
   <ion-card *ngIf="chosedNumber">
-      <ion-chip class="chosedNumber-chip" #chosenNumberResult>
-          <ion-icon name="calculator" color=""></ion-icon>
-          <ion-label>Your choise <b>{{chosedNumber}}</b> tap button to next </ion-label>
-          <button ion-button clear><ion-icon name="ios-arrow-dropright-circle"></ion-icon></button>   
-      </ion-chip>
-  </ion-card>  
+    <ion-card-header>
+      Your choice is <b>{{chosedNumber}}</b>
+    </ion-card-header>
+    <ion-card-content>
+      <button ion-button full round (click)="tapConfirmAndGoToNext()">Tap batton to next <ion-icon name="md-arrow-forward"></ion-icon></button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
