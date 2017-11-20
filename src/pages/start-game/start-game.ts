@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GameTypePage } from '../pages';
 import { retry } from 'rxjs/operator/retry';
 import { MathematicOperationService } from '../../shared/shared';
 import { AnswerModel } from './answerModel';
 
 import * as _ from 'lodash';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'page-start-game',
@@ -29,7 +30,8 @@ export class StartGamePage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    private mathOperationService: MathematicOperationService) {
+    private mathOperationService: MathematicOperationService,
+    public alertCtrl: AlertController) {
     this.paramsData = navParams.data;
   }
 
@@ -57,9 +59,8 @@ export class StartGamePage {
   }
 
   tapConfirmAndGoToNext(){
-    this.verifyChosedNumber();
-    this.setPageIteration();
-    this.goToNextPage();
+    const me = this;
+    me.verifyChosedNumber();
   }
 
   tappedAnswerButton(item) {
@@ -76,7 +77,22 @@ export class StartGamePage {
   }
   
   private verifyChosedNumber(): void {
-    
+    const me = this;
+    let isCorrectChoose: boolean = me.chosedNumber === me.correctResult;
+
+    let alert = me.alertCtrl.create({
+      title: "Info choise",
+      message: isCorrectChoose ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
+      buttons:[{
+        text: "go next page",
+        handler: data => {
+          me.setPageIteration();
+          me.goToNextPage();
+        }
+      }]
+    });
+
+    alert.present();
   }
 
   private setPageIteration(): void{
