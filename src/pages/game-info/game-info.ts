@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GameTypePage, StartGamePage } from '../pages';
+import { GameTypePage, RunGamePage } from '../pages';
 
 @Component({
   selector: 'page-game-info',
@@ -24,6 +24,11 @@ export class GameInfoPage {
 
   goToStartGame(){
     const me = this;
-    me.navCtrl.push(StartGamePage, me.paramData);
+    let processGame = {
+      params: me.paramData,
+      anwsers: null
+    };
+
+    me.navCtrl.push(RunGamePage, processGame);
   }
 }

@@ -9,10 +9,9 @@ import * as _ from 'lodash';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
-  selector: 'page-start-game',
-  templateUrl: 'start-game.html',
+  templateUrl: 'run-game.html',
 })
-export class StartGamePage {
+export class RunGamePage {
   oprationRandomNumber1: number = 0;
   operationRandomNumber2: number = 0;
   correctResult: number = 0;
@@ -73,6 +72,10 @@ export class StartGamePage {
   };
 
   private goToNextPage(): void {
+    const me = this;
+    let choosenNumber: number = me.chosedNumber;
+
+
     
   }
   
@@ -110,7 +113,7 @@ export class StartGamePage {
 
   private prepareClculations():number{
     const me = this;
-    let gameTypeName: any = me.paramsData.gameType.name;
+    let gameTypeName: any = me.paramsData.params.gameType.name;
     if (gameTypeName === "Addition"){
       me.mathSign="+";
       return me.oprationRandomNumber1 + me.operationRandomNumber2;

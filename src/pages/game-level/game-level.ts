@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { StartGamePage, GameInfoPage } from '../pages';
+import { RunGamePage, GameInfoPage } from '../pages';
 import { GameService } from '../../shared/shared';
 
 @Component({
