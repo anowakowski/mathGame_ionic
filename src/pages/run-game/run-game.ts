@@ -75,7 +75,7 @@ export class RunGamePage {
     const me = this;
     let choosenNumber: number = me.chosedNumber;
 
-
+    
     
   }
   
