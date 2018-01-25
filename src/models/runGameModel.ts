@@ -1,4 +1,4 @@
-import { GameResultModel } from "./GameResultModel";
+import { GameResultModel } from "./gameResultModel";
 import { GameTypeModel } from "./gameTypeModel";
 
 export class RunGameModel {

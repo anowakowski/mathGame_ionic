@@ -24,6 +24,6 @@ export class GameInfoPage {
 
   goToStartGame(){
     const me = this;
-    me.navCtrl.push(RunGamePage, RunGameModel);
+    me.navCtrl.push(RunGamePage, me.runGameModel);
   }
 }

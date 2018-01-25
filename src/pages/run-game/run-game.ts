@@ -8,6 +8,7 @@ import { AnswerModel } from './answerModel';
 import * as _ from 'lodash';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { RunGameModel } from '../../models/runGameModel';
+import { GameResultModel } from '../../models/gameResultModel';
 
 @Component({
   templateUrl: 'run-game.html',
@@ -26,6 +27,7 @@ export class RunGamePage {
   chosedNumber:number;
   selected :any;
   answerButtons: Array<AnswerModel>;
+  isCorrectNumber: boolean;
 
   constructor(
     public navCtrl: NavController, 
@@ -76,17 +78,27 @@ export class RunGamePage {
     const me = this;
     let choosenNumber: number = me.chosedNumber;
 
-
+    if (me.runGameModel.gameCount === undefined){
+      me.runGameModel.gameCount = 1;
+      me.runGameModel.gameResultModel = new GameResultModel();
+      me.runGameModel.gameResultModel.isSuccessResult = me.isCorrectNumber;
+      me.runGameModel.gameResultModel.result = choosenNumber;
+    } else if (choosenNumber === 5){
+      // prepere
+    } else {
+      me.runGameModel.gameCount++;
+    }
     
+    me.navCtrl.push(RunGamePage, me.runGameModel);  
   }
   
   private verifyChosedNumber(): void {
     const me = this;
-    let isCorrectChoose: boolean = me.chosedNumber === me.correctResult;
+    me.isCorrectNumber = me.chosedNumber === me.correctResult;
 
     let alert = me.alertCtrl.create({
       title: "Info choise",
-      message: isCorrectChoose ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
+      message: me.isCorrectNumber ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
       buttons:[{
         text: "go next page",
         handler: data => {
@@ -113,7 +125,7 @@ export class RunGamePage {
 
   private prepareClculations():number{
     const me = this;
-    let gameTypeName: any = me.runGameModel.gameType;
+    let gameTypeName: any = me.runGameModel.gameType.name;
     if (gameTypeName === "Addition"){
       me.mathSign="+";
       return me.oprationRandomNumber1 + me.operationRandomNumber2;
