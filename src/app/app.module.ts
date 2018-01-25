@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 
-import { TimerPage, DashboardPage, GameTimerComponent, RunGamePage, GameTypePage, GameLevelPage, GameInfoPage, ProcessGamePage } from '../pages/pages';
+import { TimerPage, DashboardPage, GameTimerComponent, RunGamePage, GameTypePage, GameLevelPage, GameInfoPage } from '../pages/pages';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { GameService, MathematicOperationService } from '../shared/shared';
 
@@ -21,7 +21,7 @@ import { GameService, MathematicOperationService } from '../shared/shared';
     GameTypePage,
     GameLevelPage,
     GameInfoPage,
-    ProcessGamePage,
+    
 
     GameTimerComponent
   ],
@@ -39,8 +39,8 @@ import { GameService, MathematicOperationService } from '../shared/shared';
     RunGamePage,
     GameTypePage,
     GameLevelPage,
-    GameInfoPage,
-    ProcessGamePage      
+    GameInfoPage
+        
   ],
   providers: [
     StatusBar,

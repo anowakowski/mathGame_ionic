@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GameTypePage, RunGamePage } from '../pages';
+import { RunGameModel } from '../models/runGameModel';
 
 @Component({
   selector: 'page-game-info',
   templateUrl: 'game-info.html',
 })
 export class GameInfoPage {
-  paramData: any;
+  runGameModel: RunGameModel;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.paramData = navParams.data;
+    this.runGameModel = navParams.data as RunGameModel;
   }
 
   ionViewDidLoad() {
-    
-    console.log(this.paramData);
+    console.log(this.runGameModel);
   }
 
   goToGameInfo(){
@@ -24,11 +24,6 @@ export class GameInfoPage {
 
   goToStartGame(){
     const me = this;
-    let processGame = {
-      params: me.paramData,
-      anwsers: null
-    };
-
-    me.navCtrl.push(RunGamePage, processGame);
+    me.navCtrl.push(RunGamePage, RunGameModel);
   }
 }

@@ -7,6 +7,7 @@ import { AnswerModel } from './answerModel';
 
 import * as _ from 'lodash';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { RunGameModel } from '../models/runGameModel';
 
 @Component({
   templateUrl: 'run-game.html',
@@ -20,7 +21,7 @@ export class RunGamePage {
   fakeResult2:number = 0;
   fakeResult1Position:number;
   fakeResult2Position:number;
-  paramsData:any;
+  runGameModel:RunGameModel;
   mathSign:string;
   chosedNumber:number;
   selected :any;
@@ -31,7 +32,7 @@ export class RunGamePage {
     public navParams: NavParams, 
     private mathOperationService: MathematicOperationService,
     public alertCtrl: AlertController) {
-    this.paramsData = navParams.data;
+    this.runGameModel = navParams.data as RunGameModel;
   }
 
   ionViewDidLoad() {
@@ -75,7 +76,7 @@ export class RunGamePage {
     const me = this;
     let choosenNumber: number = me.chosedNumber;
 
-    
+
     
   }
   
@@ -99,7 +100,6 @@ export class RunGamePage {
   }
 
   private setPageIteration(): void{
-
   }
 
   private prepareAnswerButtons() {
@@ -113,7 +113,7 @@ export class RunGamePage {
 
   private prepareClculations():number{
     const me = this;
-    let gameTypeName: any = me.paramsData.params.gameType.name;
+    let gameTypeName: any = me.runGameModel.gameType;
     if (gameTypeName === "Addition"){
       me.mathSign="+";
       return me.oprationRandomNumber1 + me.operationRandomNumber2;

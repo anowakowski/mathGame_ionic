@@ -2,16 +2,17 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RunGamePage, GameInfoPage } from '../pages';
 import { GameService } from '../../shared/shared';
+import { RunGameModel } from '../models/runGameModel';
 
 @Component({
   selector: 'page-game-level',
   templateUrl: 'game-level.html',
 })
 export class GameLevelPage {
-  private gameType: any;
+  private runGameModel: RunGameModel;
   gameLevels: any[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private gameService: GameService) {
-    this.gameType=navParams.data;
+    this.runGameModel = navParams.data as RunGameModel;
   }
 
   ionViewDidLoad() {
@@ -27,6 +28,7 @@ export class GameLevelPage {
 
   tappedGameLevel(gameLevel){
     const me = this;
-    me.navCtrl.push(GameInfoPage, {gameLevel: gameLevel, gameType: me.gameType});
+    me.runGameModel.gameLevel = gameLevel;
+    me.navCtrl.push(GameInfoPage, me.runGameModel);
   }
 }

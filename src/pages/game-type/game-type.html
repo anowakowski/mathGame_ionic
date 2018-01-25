@@ -11,7 +11,7 @@
       </ion-card-header>
       <ion-card-content>
           <ion-list>
-              <button ion-item *ngFor="let gameType of gamesType" (click)="tappedLevelItem($event, gameType)">{{gameType.name}}</button>
+              <button ion-item *ngFor="let gameType of gamesTypes" (click)="tappedGameTypeItem($event, gameType)">{{gameType.name}}</button>
           </ion-list>          
       </ion-card-content>
     </ion-card>
