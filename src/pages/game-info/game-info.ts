@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GameTypePage, RunGamePage } from '../pages';
-import { RunGameModel } from '../models/runGameModel';
+import { RunGameModel } from '../../models/runGameModel';
 
 @Component({
   selector: 'page-game-info',

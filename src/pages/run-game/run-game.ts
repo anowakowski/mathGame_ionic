@@ -7,7 +7,7 @@ import { AnswerModel } from './answerModel';
 
 import * as _ from 'lodash';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { RunGameModel } from '../models/runGameModel';
+import { RunGameModel } from '../../models/runGameModel';
 
 @Component({
   templateUrl: 'run-game.html',
