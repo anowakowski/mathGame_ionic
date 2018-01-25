@@ -32,6 +32,8 @@ export class GameTypePage {
   tappedGameTypeItem(event, gameType){
     const me = this;
 
+
+
     let runGameModel = new RunGameModel();
     runGameModel.gameType = gameType;
     me.navCtrl.push(GameLevelPage, runGameModel);
