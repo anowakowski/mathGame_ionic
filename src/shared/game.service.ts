@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { RunGameModel } from '../models/runGameModel';
 import { GameTypeModel } from '../models/gameTypeModel';
 
+import * as _ from 'lodash';
 import { GameResultModel } from '../models/gameResultModel';
+import { AnswerModel } from '../pages/run-game/answerModel';
 
 @Injectable()
 export class GameService {
@@ -26,7 +28,16 @@ export class GameService {
         return gameResultModel 
     }
 
-
+    prepareRunGameModelForGameProcessing(runGameModel: RunGameModel): void{
+        if (runGameModel.gameCount === undefined){
+            runGameModel.gameCount = 1;
+            runGameModel.gameResults = [];
+      
+          } else {
+            runGameModel.gameCount++;
+            
+        }
+    }
 }
 
 

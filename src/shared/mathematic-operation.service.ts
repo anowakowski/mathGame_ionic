@@ -46,7 +46,7 @@ export class MathematicOperationService {
         return randomNumber;
     }
 
-    public PrepareMathOperationByChosedType(gameTypeName: string, oprationRandomNumber1: number, operationRandomNumber2:number):number{
+    public PrepareResultByChosedTypeOfMathOperation(gameTypeName: string, oprationRandomNumber1: number, operationRandomNumber2:number):number{
         if (gameTypeName === "Addition"){
         return oprationRandomNumber1 + operationRandomNumber2;
         } else if(gameTypeName === "Subtraction"){
@@ -56,7 +56,7 @@ export class MathematicOperationService {
         } else if(gameTypeName === "Division"){
         return oprationRandomNumber1 / operationRandomNumber2;
         }
-    } 
+    }   
 
     private getRandomNumber(range:number):number{
         return Math.floor(Math.random() * range) + 1;

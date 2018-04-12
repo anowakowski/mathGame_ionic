@@ -25,11 +25,12 @@ export class RunGamePage {
   fakeResult1Position:number;
   fakeResult2Position:number;
   runGameModel:RunGameModel;
-  //mathSign:string;
+  mathSignToDisplay:string;
   chosedNumber:number;
   selected :any;
   answerButtons: Array<AnswerModel>;
   isCorrectNumber: boolean;
+  mathType: string;
 
   constructor(
     public navCtrl: NavController, 
@@ -51,18 +52,13 @@ export class RunGamePage {
     me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
     me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
 
-    me.correctResult = me.mathOperationService.PrepareMathOperationByChosedType(
-      me.runGameModel.gameType.name, me.oprationRandomNumber1, me.operationRandomNumber2);
+    me.correctResult = me.mathOperationService.PrepareResultByChosedTypeOfMathOperation(
+      me.runGameModel.gameType.name, me.oprationRandomNumber1, me.operationRandomNumber2);    
 
-    me.correctResultPosition = me.mathOperationService.getRandomPosition();
-    
-    me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
-    me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeResult1Position);
-   
-    me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
-    me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
-
+    me.prepareButtonsPosition();
     me.prepareAnswerButtons();
+
+    me.mathType = me.runGameModel.gameType.name;
   }
 
   tapConfirmAndGoToNext(){
@@ -77,27 +73,24 @@ export class RunGamePage {
   };
  
   isActiveButton(item) {
-      return this.selected === item;
+    return this.selected === item;
   };
 
-  private goToNextPage(): void {
+  private prepareButtonsPosition() {
+    const me = this;
+    me.correctResultPosition = me.mathOperationService.getRandomPosition();
+    me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
+    me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeResult1Position);
+    me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
+    me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
+  }
+
+  private nextPageProcessing(): void {
     const me = this;
 
-    if (me.runGameModel.gameCount === undefined){
-      me.runGameModel.gameCount = 1;
-      me.runGameModel.gameResults = [];
+    me.gameService.prepareRunGameModelForGameProcessing(me.runGameModel);
+    me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
 
-      me.runGameModel.gameResults.push(
-        me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
-
-    } else if (me.runGameModel.gameCount === me.maxGameCount){
-      // prepere finish process 
-    } else {
-      me.runGameModel.gameCount++;
-      me.runGameModel.gameResults.push(
-        me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
-    }
-    
     me.navCtrl.push(RunGamePage, me.runGameModel);  
   }
 
@@ -114,15 +107,11 @@ export class RunGamePage {
       buttons: [{
         text: "go next page",
         handler: data => {
-          me.setPageIteration();
-          me.goToNextPage();
+          me.nextPageProcessing();
         }
       }]
     });
     alert.present();
-  }
-
-  private setPageIteration(): void{
   }
 
   private prepareAnswerButtons() {
