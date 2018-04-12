@@ -38,6 +38,10 @@ export class GameService {
             
         }
     }
+
+    finsihGame(){
+        
+    }
 }
 
 

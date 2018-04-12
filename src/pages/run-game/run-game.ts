@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { RunGameModel } from '../../models/runGameModel';
 import { GameResultModel } from '../../models/gameResultModel';
+import { GameFinishPage } from '../game-finish/game-finish';
 
 @Component({
   templateUrl: 'run-game.html',
@@ -88,10 +89,14 @@ export class RunGamePage {
   private nextPageProcessing(): void {
     const me = this;
 
-    me.gameService.prepareRunGameModelForGameProcessing(me.runGameModel);
-    me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
-
-    me.navCtrl.push(RunGamePage, me.runGameModel);  
+    if (me.runGameModel.gameCount === me.maxGameCount){
+      me.navCtrl.push(GameFinishPage, me.runGameModel);
+    } else {
+      me.gameService.prepareRunGameModelForGameProcessing(me.runGameModel);
+      me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
+  
+      me.navCtrl.push(RunGamePage, me.runGameModel);  
+    }
   }
 
   private verifyChosedNumber(): void {
