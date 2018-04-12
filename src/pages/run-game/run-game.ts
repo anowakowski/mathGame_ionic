@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GameTypePage } from '../pages';
 import { retry } from 'rxjs/operator/retry';
-import { MathematicOperationService } from '../../shared/shared';
+import { MathematicOperationService, GameService } from '../../shared/shared';
 import { AnswerModel } from './answerModel';
 
 import * as _ from 'lodash';
@@ -25,7 +25,7 @@ export class RunGamePage {
   fakeResult1Position:number;
   fakeResult2Position:number;
   runGameModel:RunGameModel;
-  mathSign:string;
+  //mathSign:string;
   chosedNumber:number;
   selected :any;
   answerButtons: Array<AnswerModel>;
@@ -35,6 +35,7 @@ export class RunGamePage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private mathOperationService: MathematicOperationService,
+    private gameService: GameService,
     public alertCtrl: AlertController) {
     this.runGameModel = navParams.data as RunGameModel;
   }
@@ -50,7 +51,9 @@ export class RunGamePage {
     me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
     me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
 
-    me.correctResult = me.prepareClculations();
+    me.correctResult = me.mathOperationService.PrepareMathOperationByChosedType(
+      me.runGameModel.gameType.name, me.oprationRandomNumber1, me.operationRandomNumber2);
+
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
     
     me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
@@ -65,6 +68,7 @@ export class RunGamePage {
   tapConfirmAndGoToNext(){
     const me = this;
     me.verifyChosedNumber();
+    me.prepareChoosenNumberAlert();
   }
 
   tappedAnswerButton(item) {
@@ -83,33 +87,31 @@ export class RunGamePage {
       me.runGameModel.gameCount = 1;
       me.runGameModel.gameResults = [];
 
-      me.runGameModel.gameResults.push(this.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
+      me.runGameModel.gameResults.push(
+        me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
 
     } else if (me.runGameModel.gameCount === me.maxGameCount){
-      // prepere
+      // prepere finish process 
     } else {
       me.runGameModel.gameCount++;
-      me.runGameModel.gameResults.push(this.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
+      me.runGameModel.gameResults.push(
+        me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
     }
     
     me.navCtrl.push(RunGamePage, me.runGameModel);  
   }
 
-  private prepareNewResultModel(isCorrectNumber: boolean, chosedNumber: number) : GameResultModel {
-    let gameResultModel = new GameResultModel();
-    gameResultModel.isSuccessResult = isCorrectNumber;
-    gameResultModel.result = chosedNumber;
-    return gameResultModel 
-  }
-
   private verifyChosedNumber(): void {
     const me = this;
     me.isCorrectNumber = me.chosedNumber === me.correctResult;
+  }
 
+  private prepareChoosenNumberAlert() {
+    const me = this;
     let alert = me.alertCtrl.create({
       title: "Info choise",
       message: me.isCorrectNumber ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
-      buttons:[{
+      buttons: [{
         text: "go next page",
         handler: data => {
           me.setPageIteration();
@@ -117,7 +119,6 @@ export class RunGamePage {
         }
       }]
     });
-
     alert.present();
   }
 
@@ -131,23 +132,5 @@ export class RunGamePage {
     answers.push(new AnswerModel("fakeResult1", me.fakeResult1, me.fakeResult1Position));
     answers.push(new AnswerModel("fakeResult2", me.fakeResult2, me.fakeResult2Position));
     me.answerButtons = _.sortBy(answers, a => a.position);
-  }
-
-  private prepareClculations():number{
-    const me = this;
-    let gameTypeName: any = me.runGameModel.gameType.name;
-    if (gameTypeName === "Addition"){
-      me.mathSign="+";
-      return me.oprationRandomNumber1 + me.operationRandomNumber2;
-    } else if(gameTypeName === "Subtraction"){
-      me.mathSign="-";
-      return me.oprationRandomNumber1 - me.operationRandomNumber2;
-    } else if(gameTypeName === "Multiplication"){
-      me.mathSign="*";
-      return me.oprationRandomNumber1 * me.operationRandomNumber2;
-    } else if(gameTypeName === "Division"){
-      me.mathSign=":";
-      return me.oprationRandomNumber1 / me.operationRandomNumber2;
-    }
   }
 }

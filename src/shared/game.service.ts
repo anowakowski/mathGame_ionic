@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { RunGameModel } from '../models/runGameModel';
 import { GameTypeModel } from '../models/gameTypeModel';
 
+import { GameResultModel } from '../models/gameResultModel';
+
 @Injectable()
 export class GameService {
     constructor(public http: HttpClient) { }
@@ -16,6 +18,15 @@ export class GameService {
         const me = this;
         return me.http.get('assets/data/gameLevels.json').toPromise().then(response => response as RunGameModel[]);
     }
+
+    prepareNewResultModel(isCorrectNumber: boolean, chosedNumber: number) : GameResultModel {
+        let gameResultModel = new GameResultModel();
+        gameResultModel.isSuccessResult = isCorrectNumber;
+        gameResultModel.result = chosedNumber;
+        return gameResultModel 
+    }
+
+
 }
 
 
