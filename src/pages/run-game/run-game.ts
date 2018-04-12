@@ -14,6 +14,8 @@ import { GameResultModel } from '../../models/gameResultModel';
   templateUrl: 'run-game.html',
 })
 export class RunGamePage {
+  private readonly maxGameCount: number = 5;
+
   oprationRandomNumber1: number = 0;
   operationRandomNumber2: number = 0;
   correctResult: number = 0;
@@ -76,22 +78,30 @@ export class RunGamePage {
 
   private goToNextPage(): void {
     const me = this;
-    let choosenNumber: number = me.chosedNumber;
 
     if (me.runGameModel.gameCount === undefined){
       me.runGameModel.gameCount = 1;
-      me.runGameModel.gameResultModel = new GameResultModel();
-      me.runGameModel.gameResultModel.isSuccessResult = me.isCorrectNumber;
-      me.runGameModel.gameResultModel.result = choosenNumber;
-    } else if (choosenNumber === 5){
+      me.runGameModel.gameResults = [];
+
+      me.runGameModel.gameResults.push(this.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
+
+    } else if (me.runGameModel.gameCount === me.maxGameCount){
       // prepere
     } else {
       me.runGameModel.gameCount++;
+      me.runGameModel.gameResults.push(this.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
     }
     
     me.navCtrl.push(RunGamePage, me.runGameModel);  
   }
-  
+
+  private prepareNewResultModel(isCorrectNumber: boolean, chosedNumber: number) : GameResultModel {
+    let gameResultModel = new GameResultModel();
+    gameResultModel.isSuccessResult = isCorrectNumber;
+    gameResultModel.result = chosedNumber;
+    return gameResultModel 
+  }
+
   private verifyChosedNumber(): void {
     const me = this;
     me.isCorrectNumber = me.chosedNumber === me.correctResult;
