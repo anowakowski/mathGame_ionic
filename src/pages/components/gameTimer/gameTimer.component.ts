@@ -71,13 +71,12 @@ export class GameTimerComponent{
 
     return {
       'top': isSemi ? 'auto' : '50%',
-      'bottom': isSemi ? '5%' : 'auto',
+      'bottom': isSemi ? '3%' : 'auto',
       'left': '50%',
       'transform': transform,
       '-moz-transform': transform,
       '-webkit-transform': transform,
-      'font-size': this.radius / 3.5 + 'px'
+      'font-size': this.radius / 5 + 'px'
     };
   }  
-
 }
