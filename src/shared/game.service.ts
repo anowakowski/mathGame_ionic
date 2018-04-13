@@ -35,12 +35,11 @@ export class GameService {
       
           } else {
             runGameModel.gameCount++;
-            
         }
     }
 
     finsihGame(){
-        
+
     }
 }
 
