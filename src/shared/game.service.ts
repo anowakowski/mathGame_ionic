@@ -38,6 +38,14 @@ export class GameService {
         }
     }
 
+    setGameCountForDisplay(currentGameCount: number) : number {
+        if (currentGameCount !== undefined) {
+          return currentGameCount + 1;
+        } 
+
+        return 1;
+    }
+
     finsihGame(){
 
     }

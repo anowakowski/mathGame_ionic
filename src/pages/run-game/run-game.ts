@@ -32,6 +32,7 @@ export class RunGamePage {
   answerButtons: Array<AnswerModel>;
   isCorrectNumber: boolean;
   mathType: string;
+  gameCountToDisplay: number;;
 
   constructor(
     public navCtrl: NavController, 
@@ -45,6 +46,7 @@ export class RunGamePage {
   ionViewDidLoad() {
     const me = this;
     me.setUpMathOperation();
+    me.gameCountToDisplay = me.gameService.setGameCountForDisplay(me.runGameModel.gameCount);
   }
 
   setUpMathOperation(){
@@ -76,6 +78,8 @@ export class RunGamePage {
   isActiveButton(item) {
     return this.selected === item;
   };
+
+
 
   private prepareButtonsPosition() {
     const me = this;
