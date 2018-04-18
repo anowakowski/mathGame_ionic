@@ -15,7 +15,7 @@ import { GameFinishPage } from '../game-finish/game-finish';
   templateUrl: 'run-game.html',
 })
 export class RunGamePage {
-  private readonly maxGameCount: number = 5;
+  private readonly maxGameCount: number = 4;
 
   oprationRandomNumber1: number = 0;
   operationRandomNumber2: number = 0;
@@ -78,8 +78,6 @@ export class RunGamePage {
   isActiveButton(item) {
     return this.selected === item;
   };
-
-
 
   private prepareButtonsPosition() {
     const me = this;
