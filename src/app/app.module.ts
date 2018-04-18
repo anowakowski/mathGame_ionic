@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TimerPage, DashboardPage, GameTimerComponent, RunGamePage, GameTypePage, GameLevelPage, GameInfoPage } from '../pages/pages';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { GameService, MathematicOperationService } from '../shared/shared';
+import { GameFinishPage } from '../pages/game-finish/game-finish';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,8 @@ import { GameService, MathematicOperationService } from '../shared/shared';
     GameTypePage,
     GameLevelPage,
     GameInfoPage,
+    GameFinishPage,
     
-
     GameTimerComponent
   ],
   imports: [
@@ -39,8 +40,8 @@ import { GameService, MathematicOperationService } from '../shared/shared';
     RunGamePage,
     GameTypePage,
     GameLevelPage,
-    GameInfoPage
-        
+    GameInfoPage,
+    GameFinishPage        
   ],
   providers: [
     StatusBar,
