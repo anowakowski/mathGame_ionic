@@ -25,6 +25,7 @@ export class GameService {
         let gameResultModel = new GameResultModel();
         gameResultModel.isSuccessResult = isCorrectNumber;
         gameResultModel.result = chosedNumber;
+        
         return gameResultModel 
     }
 
@@ -32,7 +33,7 @@ export class GameService {
         if (runGameModel.gameCount === undefined){
             runGameModel.gameCount = 1;
             runGameModel.gameResults = [];
-      
+            runGameModel.gameScore = 0;
           } else {
             runGameModel.gameCount++;
         }
@@ -46,8 +47,11 @@ export class GameService {
         return 1;
     }
 
-    finsihGame(){
-
+    setDefaultValueForGameScoreIfUndefine(value:number):number{
+        if (value === undefined){
+            return 0;
+        }
+        return value;
     }
 }
 

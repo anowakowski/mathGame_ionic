@@ -32,7 +32,8 @@ export class RunGamePage {
   answerButtons: Array<AnswerModel>;
   isCorrectNumber: boolean;
   mathType: string;
-  gameCountToDisplay: number;;
+  gameCountToDisplay: number;
+  gameScoreToDisplay:number;
 
   constructor(
     public navCtrl: NavController, 
@@ -47,6 +48,7 @@ export class RunGamePage {
     const me = this;
     me.setUpMathOperation();
     me.gameCountToDisplay = me.gameService.setGameCountForDisplay(me.runGameModel.gameCount);
+    me.gameScoreToDisplay = me.gameService.setDefaultValueForGameScoreIfUndefine(me.runGameModel.gameScore);
   }
 
   setUpMathOperation(){
@@ -96,7 +98,7 @@ export class RunGamePage {
     } else {
       me.gameService.prepareRunGameModelForGameProcessing(me.runGameModel);
       me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
-  
+      me.runGameModel.gameScore = me.isCorrectNumber ? me.runGameModel.gameScore + 1 : me.runGameModel.gameScore;
       me.navCtrl.push(RunGamePage, me.runGameModel);  
     }
   }

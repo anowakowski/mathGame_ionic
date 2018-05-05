@@ -9,4 +9,5 @@ export class RunGameModel {
     public gameLevel:string; 
     public gameCount:number; 
     public gameResults:GameResultModel[]
+    public gameScore:number;
 }
