@@ -56,7 +56,11 @@ export class MathematicOperationService {
         } else if(gameTypeName === "Division"){
         return oprationRandomNumber1 / operationRandomNumber2;
         }
-    }   
+    }
+    
+    public CastToPercenageString(value: number):string{
+        return (value * 100).toString() + '%';
+    }
 
     private getRandomNumber(range:number):number{
         return Math.floor(Math.random() * range) + 1;

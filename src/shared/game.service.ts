@@ -53,6 +53,10 @@ export class GameService {
         }
         return value;
     }
+
+    prepareGemeResultPercentage(gameCount: number, countOfPassGames: number): number{
+        return countOfPassGames / gameCount;
+    }
 }
 
 
