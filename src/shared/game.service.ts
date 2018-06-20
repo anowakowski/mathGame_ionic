@@ -29,19 +29,21 @@ export class GameService {
         return gameResultModel 
     }
 
-    prepareRunGameModelForGameProcessing(runGameModel: RunGameModel): void{
-        if (runGameModel.gameCount === undefined){
+    prepareFirstGameData(runGameModel: RunGameModel){
+        if (runGameModel.gameCount === undefined || runGameModel.gameCount === 0){
             runGameModel.gameCount = 1;
             runGameModel.gameResults = [];
             runGameModel.gameScore = 0;
-          } else {
-            runGameModel.gameCount++;
-        }
+          }
+    }
+
+    prepareRunGameModelForGameProcessing(runGameModel: RunGameModel): void{
+        runGameModel.gameCount++;
     }
 
     setGameCountForDisplay(currentGameCount: number) : number {
         if (currentGameCount !== undefined) {
-          return currentGameCount + 1;
+          return currentGameCount;
         } 
 
         return 1;

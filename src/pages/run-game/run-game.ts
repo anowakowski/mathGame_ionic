@@ -15,7 +15,7 @@ import { GameFinishPage } from '../game-finish/game-finish';
   templateUrl: 'run-game.html',
 })
 export class RunGamePage {
-  private readonly maxGameCount: number = 4;
+  private readonly maxGameCount: number = 5;
 
   oprationRandomNumber1: number = 0;
   operationRandomNumber2: number = 0;
@@ -47,6 +47,7 @@ export class RunGamePage {
   ionViewDidLoad() {
     const me = this;
     me.setUpMathOperation();
+    me.gameService.prepareFirstGameData(me.runGameModel);
     me.gameCountToDisplay = me.gameService.setGameCountForDisplay(me.runGameModel.gameCount);
     me.gameScoreToDisplay = me.gameService.setDefaultValueForGameScoreIfUndefine(me.runGameModel.gameScore);
   }

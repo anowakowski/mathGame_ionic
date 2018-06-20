@@ -1,6 +1,7 @@
 <ion-header>
   <ion-navbar hideBackButton>
-    <ion-title >your result</ion-title>
+    <ion-title ><span>your result</span> <button ion-button >repead game</button></ion-title>
+    
   </ion-navbar>
 </ion-header>
 
@@ -14,10 +15,10 @@
       </ion-card-title>
       <h3>your result and basic info below</h3>
       <p>
-        you get 3 pkt from 5
+        you get <b>{{actualGameScore}}</b> pkt from <b>{{totalPosibilityScore}}</b>
       </p>
       <p>
-        its {{percentage}} of the total
+        its <b>{{percentage}}</b> of the total
       </p>
     </ion-card-content>
   </ion-card>
