@@ -11,18 +11,17 @@ import { GameService, MathematicOperationService } from '../../shared/shared';
 })
 export class GameFinishPage {
   runGameModel: RunGameModel;
+  percentage: string
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public gameService: GameService, public mathOperation: MathematicOperationService) {
     this.runGameModel = navParams.data as RunGameModel;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GameFinishPage');
-
+    const me = this;
     let result: number;
-    let perc: string;
     
-    result = this.gameService.prepareGemeResultPercentage(this.runGameModel.gameCount, this.runGameModel.gameScore);
-    perc = this.mathOperation.CastToPercenageString(result);
+    result = me.gameService.prepareGemeResultPercentage(this.runGameModel.gameCount, this.runGameModel.gameScore);
+    me.percentage = me.mathOperation.CastToPercenageString(result);
   }
 }
