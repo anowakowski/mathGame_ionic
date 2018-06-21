@@ -87,8 +87,8 @@ export class RunGamePage {
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
     me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
     me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeResult1Position);
-    me.fakeResult1 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult);
-    me.fakeResult2 = me.mathOperationService.prepareMoreDetailFakeResult(me.correctResult, me.fakeResult1);
+    me.fakeResult1 = me.mathOperationService.prepareMoreCloserFakeResult(me.correctResult);
+    me.fakeResult2 = me.mathOperationService.prepareMoreCloserFakeResult(me.correctResult, me.fakeResult1);
   }
 
   private nextPageProcessing(): void {

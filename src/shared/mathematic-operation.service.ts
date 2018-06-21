@@ -13,7 +13,7 @@ export class MathematicOperationService {
         return this.getRandomNumber(3);
     }
 
-    public prepareMoreDetailFakeResult(currentResult: number, fakeResult1:number = null): number{
+    public prepareMoreCloserFakeResult(currentResult: number, fakeResult1:number = null): number{
         const me = this;
         let result: number = 0;
         if (currentResult > 10 && currentResult < 25){
@@ -36,11 +36,9 @@ export class MathematicOperationService {
         let randomNumber = me.getRandomNumber(range);
         if (fakeResult1 !== null){
             if (correctResultToCheck === randomNumber || fakeResult1 === randomNumber){
-                let newFakeFaluer = me.getRandomNumber(range);
                 return me.prepareRandomNumber(correctResultToCheck, range, fakeResult1);
             }
         } else if (correctResultToCheck === randomNumber){
-            let newFakeFaluer = me.getRandomNumber(range);
             return me.prepareRandomNumber(correctResultToCheck, range);
         }
         return randomNumber;
@@ -65,5 +63,4 @@ export class MathematicOperationService {
     private getRandomNumber(range:number):number{
         return Math.floor(Math.random() * range) + 1;
     }
-  
 }
