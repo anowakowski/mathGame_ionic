@@ -58,8 +58,13 @@ export class RunGamePage {
     me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
     me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
 
+    let test:string = me.oprationRandomNumber1.toString() + " " + me.runGameModel.gameType.mathSign + " " + me.operationRandomNumber2.toString();
+    let e = eval(test);
+
+    let mathOperation = me.mathOperationService.preparMathOperationAsString(me.runGameModel.gameType, me.oprationRandomNumber1, me.operationRandomNumber2);
+
     me.correctResult = me.mathOperationService.PrepareResultByChosedTypeOfMathOperation(
-      me.runGameModel.gameType.name, me.oprationRandomNumber1, me.operationRandomNumber2);    
+      me.runGameModel.gameType.name, me.oprationRandomNumber1, me.operationRandomNumber2);  
 
     me.prepareButtonsPosition();
     me.prepareAnswerButtons();

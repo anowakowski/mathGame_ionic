@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { GameTypeModel } from '../models/gameTypeModel';
 
 @Injectable()
 export class MathematicOperationService {
@@ -11,6 +12,10 @@ export class MathematicOperationService {
 
     public getRandomPosition():number{
         return this.getRandomNumber(3);
+    }
+
+    public preparMathOperationAsString(gameTypeModel: GameTypeModel,oprationRandomNumber1:number,  operationRandomNumber2:number): string{
+        return oprationRandomNumber1.toString() + " " + gameTypeModel.mathSign + " " + operationRandomNumber2.toString();
     }
 
     public prepareMoreCloserFakeResult(currentResult: number, fakeResult1:number = null): number{

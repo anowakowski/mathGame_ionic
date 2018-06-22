@@ -1,18 +1,22 @@
 [
     {
       "id":"1",
-      "name":"Addition"
+      "name":"Addition",
+      "mathSign": "+"
     },
     {
       "id":"2",
-      "name":"Subtraction"
+      "name":"Subtraction",
+      "mathSign": "-"
     },
     {
       "id":"3",
-      "name":"Division"
+      "name":"Division",
+      "mathSign": "/"
     },
     {
       "id":"4",
-      "name":"Multiplication"
+      "name":"Multiplication",
+      "mathSign": "*"
     }        
 ]
