@@ -17,8 +17,7 @@ import { GameFinishPage } from '../game-finish/game-finish';
 export class RunGamePage {
   private readonly maxGameCount: number = 5;
 
-  oprationRandomNumber1: number = 0;
-  operationRandomNumber2: number = 0;
+  mathOperationAsString: string;
   correctResult: number = 0;
   correctResultPosition: number = 1;
   fakeResult1:number = 0;
@@ -50,21 +49,19 @@ export class RunGamePage {
     me.gameService.prepareFirstGameData(me.runGameModel);
     me.gameCountToDisplay = me.gameService.setGameCountForDisplay(me.runGameModel.gameCount);
     me.gameScoreToDisplay = me.gameService.setDefaultValueForGameScoreIfUndefine(me.runGameModel.gameScore);
+
+    
   }
 
   setUpMathOperation(){
     const me = this;
 
-    me.oprationRandomNumber1 = me.mathOperationService.getRandomNumberToMath();
-    me.operationRandomNumber2 = me.mathOperationService.getRandomNumberToMath();
+    me.mathOperationAsString = me.mathOperationService.preparMathOperationAsString(
+      me.runGameModel.gameType, 
+      me.mathOperationService.getRandomNumberToMath(), 
+      me.mathOperationService.getRandomNumberToMath());
 
-    let test:string = me.oprationRandomNumber1.toString() + " " + me.runGameModel.gameType.mathSign + " " + me.operationRandomNumber2.toString();
-    let e = eval(test);
-
-    let mathOperation = me.mathOperationService.preparMathOperationAsString(me.runGameModel.gameType, me.oprationRandomNumber1, me.operationRandomNumber2);
-
-    me.correctResult = me.mathOperationService.PrepareResultByChosedTypeOfMathOperation(
-      me.runGameModel.gameType.name, me.oprationRandomNumber1, me.operationRandomNumber2);  
+    me.correctResult = me.mathOperationService.prepareCorrectResult(me.mathOperationAsString);
 
     me.prepareButtonsPosition();
     me.prepareAnswerButtons();
@@ -103,7 +100,7 @@ export class RunGamePage {
       me.navCtrl.push(GameFinishPage, me.runGameModel);
     } else {
       me.gameService.prepareRunGameModelForGameProcessing(me.runGameModel);
-      me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber));
+      me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber, me.mathOperationAsString));
       me.runGameModel.gameScore = me.isCorrectNumber ? me.runGameModel.gameScore + 1 : me.runGameModel.gameScore;
       me.navCtrl.push(RunGamePage, me.runGameModel);  
     }

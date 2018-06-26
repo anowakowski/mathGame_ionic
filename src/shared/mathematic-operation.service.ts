@@ -15,7 +15,11 @@ export class MathematicOperationService {
     }
 
     public preparMathOperationAsString(gameTypeModel: GameTypeModel,oprationRandomNumber1:number,  operationRandomNumber2:number): string{
-        return oprationRandomNumber1.toString() + " " + gameTypeModel.mathSign + " " + operationRandomNumber2.toString();
+        return oprationRandomNumber1.toString().concat(gameTypeModel.mathSign, operationRandomNumber2.toString());
+    }
+
+    public prepareCorrectResult(mathOperatoin:string){
+        return eval(mathOperatoin);
     }
 
     public prepareMoreCloserFakeResult(currentResult: number, fakeResult1:number = null): number{
@@ -47,18 +51,6 @@ export class MathematicOperationService {
             return me.prepareRandomNumber(correctResultToCheck, range);
         }
         return randomNumber;
-    }
-
-    public PrepareResultByChosedTypeOfMathOperation(gameTypeName: string, oprationRandomNumber1: number, operationRandomNumber2:number):number{
-        if (gameTypeName === "Addition"){
-        return oprationRandomNumber1 + operationRandomNumber2;
-        } else if(gameTypeName === "Subtraction"){
-        return oprationRandomNumber1 - operationRandomNumber2;
-        } else if(gameTypeName === "Multiplication"){
-        return oprationRandomNumber1 * operationRandomNumber2;
-        } else if(gameTypeName === "Division"){
-        return oprationRandomNumber1 / operationRandomNumber2;
-        }
     }
     
     public CastToPercenageString(value: number):string{
