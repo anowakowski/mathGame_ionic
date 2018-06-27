@@ -1,32 +1,33 @@
-page-start-game {
-
+page-run-game {
+    .mathOperation-font{
+        text-align: center;
+        font-size: 20px;
+        font-family: "Times New Roman", Georgia, Serif;
+        font-style: italic;
+        color: grey;
+        padding-left: 5px;
+    }
+    
+    .mathOperationResult-Button{
+        margin-bottom: 10px;
+    }
+    
+    .mathOperationSign-font{
+        color: #929446;
+        font-size: larger;
+    }
+    
+    .chosedButton{
+        background-color: #62b362;
+    }
+    
+    .unchosedButton{
+        background-color: #488aff;
+    }
+    
+    .chosedNumber-chip{
+        margin-left: inherit;
+    }
 }
 
-.mathOperation-font{
-    text-align: center;
-    font-size: 20px;
-    font-family: "Times New Roman", Georgia, Serif;
-    font-style: italic;
-    color: grey;
-}
 
-.mathOperationResult-Button{
-    margin-bottom: 10px;
-}
-
-.mathOperationSign-font{
-    color: #929446;
-    font-size: larger;
-}
-
-.chosedButton{
-    background-color: #62b362;
-}
-
-.unchosedButton{
-    background-color: #488aff;
-}
-
-.chosedNumber-chip{
-    margin-left: inherit;
-}
