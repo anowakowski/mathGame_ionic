@@ -1,5 +1,6 @@
 export class GameResultModel {
-    public result:number; 
+    public chosenNumber:number; 
     public isSuccessResult:boolean;
+    public correctNumber:number;
     public MathOperation: string;
 }

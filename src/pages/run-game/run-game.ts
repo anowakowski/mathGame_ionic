@@ -98,7 +98,7 @@ export class RunGamePage {
       me.navCtrl.push(GameFinishPage, me.runGameModel);
     } else {
       me.gameService.prepareRunGameModelForGameProcessing(me.runGameModel);
-      me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.chosedNumber, me.mathOperationAsString));
+      me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.correctResult, me.chosedNumber, me.mathOperationAsString));
       me.runGameModel.gameScore = me.isCorrectNumber ? me.runGameModel.gameScore + 1 : me.runGameModel.gameScore;
       me.navCtrl.push(RunGamePage, me.runGameModel);  
     }
