@@ -18,6 +18,7 @@ import { GameFinishPage } from '../game-finish/game-finish';
 export class RunGamePage {
 
   @ViewChild('myButton', {read: ElementRef}) myButton;
+  @ViewChild('myButton2', {read: ElementRef}) myButton2;
 
   private readonly maxGameCount: number = 5;
 
@@ -74,6 +75,10 @@ export class RunGamePage {
 
   changeStyle(){
     this.render.setElementStyle(this.myButton.nativeElement, 'opacity', '0');
+  }
+
+  changePaddingStyle(){
+    this.render.setElementStyle(this.myButton2.nativeElement, 'padding', '50px');
   }
 
   tapConfirmAndGoToNext(){
