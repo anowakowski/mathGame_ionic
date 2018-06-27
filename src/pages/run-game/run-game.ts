@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, Renderer, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GameTypePage } from '../pages';
 import { retry } from 'rxjs/operator/retry';
@@ -16,6 +16,9 @@ import { GameFinishPage } from '../game-finish/game-finish';
   templateUrl: 'run-game.html',
 })
 export class RunGamePage {
+
+  @ViewChild('myButton', {read: ElementRef}) myButton;
+
   private readonly maxGameCount: number = 5;
 
   mathOperationAsString: string;
@@ -40,7 +43,8 @@ export class RunGamePage {
     public navParams: NavParams, 
     private mathOperationService: MathematicOperationService,
     private gameService: GameService,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public render: Renderer) {
     this.runGameModel = navParams.data as RunGameModel;
   }
 
@@ -66,6 +70,10 @@ export class RunGamePage {
     me.prepareAnswerButtons();
 
     me.mathType = me.runGameModel.gameType.name;
+  }
+
+  changeStyle(){
+    this.render.setElementStyle(this.myButton.nativeElement, 'opacity', '0');
   }
 
   tapConfirmAndGoToNext(){

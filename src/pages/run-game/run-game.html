@@ -34,7 +34,7 @@
           </button>
           
       </ion-buttons>
-      <button ion-button color="primary">test btn</button>
+      <button class="button-test" #myButton ion-button full color="primary" (click)="changeStyle()">test btn for chlid view</button>
     </ion-card-content>
   </ion-card>
   <ion-card *ngIf="chosedNumber">
