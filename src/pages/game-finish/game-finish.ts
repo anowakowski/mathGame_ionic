@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RunGameModel } from '../../models/runGameModel';
 import { GameService, MathematicOperationService } from '../../shared/shared';
 import { GameResultModel } from '../../models/gameResultModel';
+import { DashboardPage } from '../pages';
+import { GameTypePage } from '../game-type/game-type';
 
 
 @IonicPage()
@@ -24,6 +26,10 @@ export class GameFinishPage {
 
   ionViewDidLoad() {
     this.prepareSummary();
+  }
+
+  backToGameType(){
+    this.navCtrl.push(GameTypePage);
   }
 
   private prepareSummary(){
