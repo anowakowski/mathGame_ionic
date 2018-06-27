@@ -95,13 +95,19 @@ export class RunGamePage {
     const me = this;
 
     if (me.runGameModel.gameCount === me.maxGameCount){
+      me.setRunGameModel();
       me.navCtrl.push(GameFinishPage, me.runGameModel);
     } else {
       me.gameService.prepareRunGameModelForGameProcessing(me.runGameModel);
-      me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.correctResult, me.chosedNumber, me.mathOperationAsString));
+      this.setRunGameModel();
       me.runGameModel.gameScore = me.isCorrectNumber ? me.runGameModel.gameScore + 1 : me.runGameModel.gameScore;
       me.navCtrl.push(RunGamePage, me.runGameModel);  
     }
+  }
+
+  private setRunGameModel() {
+    const me = this;
+    me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.correctResult, me.chosedNumber, me.mathOperationAsString));
   }
 
   private verifyChosedNumber(): void {
