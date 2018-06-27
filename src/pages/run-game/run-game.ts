@@ -49,8 +49,6 @@ export class RunGamePage {
     me.gameService.prepareFirstGameData(me.runGameModel);
     me.gameCountToDisplay = me.gameService.setGameCountForDisplay(me.runGameModel.gameCount);
     me.gameScoreToDisplay = me.gameService.setDefaultValueForGameScoreIfUndefine(me.runGameModel.gameScore);
-
-    
   }
 
   setUpMathOperation(){

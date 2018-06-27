@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar hideBackButton>
-    <ion-title ><span>your result</span> <button ion-button >repead game</button></ion-title>
+    <ion-title ><span>your result below</span></ion-title>
     
   </ion-navbar>
 </ion-header>
@@ -30,24 +30,9 @@
         Details
       </ion-card-title>
       <h3>your correct and incorrect math operation</h3>
-      <p>
-        you get <b>{{actualGameScore}}</b> pkt from <b>{{totalPosibilityScore}}</b>
-      </p>
-      <p>
-        its <b>{{percentage}}</b> of the total
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Try again?
-    </ion-card-header>
-    <ion-card-content>
       <p>if you would like to try again press the button below</p>
-      <button ion-button >repead game</button>
+      <p *ngFor="let gameResult of gameResults">{{gameResult.MathOperation}}</p>
     </ion-card-content>
   </ion-card>
-
 
 </ion-content>

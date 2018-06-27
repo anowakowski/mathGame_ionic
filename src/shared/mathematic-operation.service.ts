@@ -15,7 +15,7 @@ export class MathematicOperationService {
     }
 
     public preparMathOperationAsString(gameTypeModel: GameTypeModel,oprationRandomNumber1:number,  operationRandomNumber2:number): string{
-        return oprationRandomNumber1.toString().concat(gameTypeModel.mathSign, operationRandomNumber2.toString());
+        return oprationRandomNumber1.toString().concat(" ", gameTypeModel.mathSign," ", operationRandomNumber2.toString());
     }
 
     public prepareCorrectResult(mathOperatoin:string){

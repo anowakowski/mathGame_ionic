@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RunGameModel } from '../../models/runGameModel';
 import { GameService, MathematicOperationService } from '../../shared/shared';
+import { GameResultModel } from '../../models/gameResultModel';
 
 
 @IonicPage()
@@ -14,6 +15,7 @@ export class GameFinishPage {
   percentage: string;
   actualGameScore: number;
   totalPosibilityScore: number;
+  gameResults: GameResultModel[]
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public gameService: GameService, public mathOperation: MathematicOperationService) {
     this.runGameModel = navParams.data as RunGameModel;
@@ -28,5 +30,6 @@ export class GameFinishPage {
     me.percentage = me.mathOperation.CastToPercenageString(me.gameService.prepareGemeResultPercentage(me.runGameModel.gameCount, me.runGameModel.gameScore));
     me.actualGameScore = me.runGameModel.gameScore;
     me.totalPosibilityScore = me.runGameModel.gameCount;
+    me.gameResults = me.runGameModel.gameResults;
   }
 }
