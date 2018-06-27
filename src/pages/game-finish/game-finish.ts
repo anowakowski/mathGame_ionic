@@ -9,6 +9,7 @@ import { GameResultModel } from '../../models/gameResultModel';
 @Component({
   selector: 'page-game-finish',
   templateUrl: 'game-finish.html',
+  
 })
 export class GameFinishPage {
   runGameModel: RunGameModel;

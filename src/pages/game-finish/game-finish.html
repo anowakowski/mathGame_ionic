@@ -31,7 +31,12 @@
       </ion-card-title>
       <h3>your correct and incorrect math operation</h3>
       <p>if you would like to try again press the button below</p>
-      <p *ngFor="let gameResult of gameResults">{{gameResult.MathOperation}}</p>
+      <p *ngFor="let gameResult of gameResults">
+        <span [ngClass]="!gameResult.isSuccessResult ? 'incorrectNumber' : 'correctNumber'">
+            <span >{{gameResult.MathOperation}}</span><span> = {{gameResult.chosenNumber}}</span>
+        </span>
+        
+      </p>
     </ion-card-content>
   </ion-card>
 
