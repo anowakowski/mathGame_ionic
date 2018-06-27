@@ -30,10 +30,14 @@
         Details
       </ion-card-title>
       <h3>your correct and incorrect math operation</h3>
-      <p>if you would like to try again press the button below</p>
+      
       <p *ngFor="let gameResult of gameResults">
+        <span>{{gameResult.GameNumber}}:</span>
         <span [ngClass]="!gameResult.isSuccessResult ? 'incorrectNumber' : 'correctNumber'">
-            <span >{{gameResult.MathOperation}}</span><span> = {{gameResult.chosenNumber}}</span>
+            <span>{{gameResult.MathOperation}}</span><span> = {{gameResult.chosenNumber}}</span>
+        </span>
+        <span *ngIf="!gameResult.isSuccessResult">
+            <span class="hintAnswerNumber"><i>correct result is <b>{{gameResult.correctNumber}}</b></i></span>
         </span>
         
       </p>

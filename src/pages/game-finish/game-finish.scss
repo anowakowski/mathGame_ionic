@@ -1,10 +1,16 @@
 page-game-finish {
    .incorrectNumber{
       color: red;
+      font-size: 20px;
    }
    .correctNumber {
       color: green;
+      font-size: 14px;
    }
+   .hintAnswerNumber{
+      color: black;
+   }
+   
 
 }
 

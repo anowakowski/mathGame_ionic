@@ -21,12 +21,13 @@ export class GameService {
         return me.http.get('assets/data/gameLevels.json').toPromise().then(response => response as RunGameModel[]);
     }
 
-    prepareNewResultModel(isCorrectNumber: boolean, correctNumber:number, chosedNumber: number, mathOperation:string) : GameResultModel {
+    prepareNewResultModel(isCorrectNumber: boolean, correctNumber:number, chosedNumber: number, mathOperation:string, gameNumber:number) : GameResultModel {
         let gameResultModel = new GameResultModel();
         gameResultModel.isSuccessResult = isCorrectNumber;
         gameResultModel.chosenNumber = chosedNumber;
         gameResultModel.MathOperation = mathOperation
         gameResultModel.correctNumber = correctNumber;
+        gameResultModel.GameNumber = gameNumber;
         
         return gameResultModel 
     }

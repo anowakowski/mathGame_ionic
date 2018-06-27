@@ -3,4 +3,5 @@ export class GameResultModel {
     public isSuccessResult:boolean;
     public correctNumber:number;
     public MathOperation: string;
+    public GameNumber:number;
 }

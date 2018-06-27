@@ -107,7 +107,7 @@ export class RunGamePage {
 
   private setRunGameModel() {
     const me = this;
-    me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.correctResult, me.chosedNumber, me.mathOperationAsString));
+    me.runGameModel.gameResults.push(me.gameService.prepareNewResultModel(me.isCorrectNumber, me.correctResult, me.chosedNumber, me.mathOperationAsString, me.gameCountToDisplay));
   }
 
   private verifyChosedNumber(): void {
