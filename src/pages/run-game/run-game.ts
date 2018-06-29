@@ -1,4 +1,4 @@
-import { Component, Renderer } from '@angular/core';
+import { Component, Renderer, ViewChild, ElementRef } from '@angular/core';
 import {NavController, NavParams, AlertController, ToastController, Toast } from 'ionic-angular';
 
 import { MathematicOperationService, GameService } from '../../shared/shared';
@@ -13,6 +13,8 @@ import { GameFinishPage } from '../game-finish/game-finish';
   templateUrl: 'run-game.html',
 })
 export class RunGamePage {
+
+  @ViewChild('confiramtionButton', {read: ElementRef}) confiramtionButton;
 
   private readonly maxGameCount: number = 5;
 
@@ -70,6 +72,11 @@ export class RunGamePage {
 
   tapConfirmAndGoToNext(){
     const me = this;
+
+    if (me.chosedNumber === undefined){
+      return;
+    }
+
     me.verifyChosedNumber();
     me.prepareChoosenNumberAlert();
   }
@@ -78,6 +85,10 @@ export class RunGamePage {
     const me = this;
     me.selectedAnswerButton = (me.selectedAnswerButton === answerValue ? null : answerValue); 
     me.chosedNumber = answerValue;
+
+    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'padding', '30px');
+    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'opacity', '1');
+    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'background-color', '#af5139');
   };
  
   isActiveAnswereButton(button) {
@@ -122,7 +133,7 @@ export class RunGamePage {
 
     let toast = me.toastCtrl.create({
       message: me.isCorrectNumber ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
-      duration: 3000,
+      duration: 2500,
       position: 'bottom',
     });
 

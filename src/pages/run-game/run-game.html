@@ -7,16 +7,13 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <ion-card-header>
-      <ion-icon name="md-bulb"> Solve the math operation</ion-icon>
-    </ion-card-header>
     <ion-card-content>
         <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
         <hr/>
         <ion-icon name="calculator"></ion-icon>
         <span class="mathOperation-font"> {{mathType}}:
           <span><b>{{mathOperationAsString}}</b></span>
-        </span>
+        </span><ion-icon name="md-bulb"></ion-icon>
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -32,18 +29,15 @@
             ion-button full round>
             {{answer.value}}
           </button>
-        
-          
       </ion-buttons>
-      <!--<button class="button-test" #myButton2 ion-button full round color="primary" (click)="changePaddingStyle()">test btn for chlid view</button>-->
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="chosedNumber">
-    <ion-card-header>
-      Your choice is <b>{{chosedNumber}}</b>
-    </ion-card-header>
+  <ion-card>
     <ion-card-content>
-      <button ion-button full round (click)="tapConfirmAndGoToNext()"><ion-icon name="md-arrow-forward"> Tap  and confirm your choise</ion-icon></button>
+      <button #confiramtionButton ion-button full round (click)="tapConfirmAndGoToNext()" class="confirmationButton">
+        <span *ngIf="!chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> Please choose your answer</ion-icon></span>
+        <span *ngIf="chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> tap and confirm</ion-icon></span>
+      </button>
     </ion-card-content>
   </ion-card>
 </ion-content>

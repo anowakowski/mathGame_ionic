@@ -19,14 +19,21 @@ page-run-game {
     
     .activeButton{
         background-color: #62b362;
-        opacity: 1;
-        transition: 0.3s linear;
         padding: 30px;
+        transition: 0.3s linear;
     }
     
     .chosedNumber-chip{
         margin-left: inherit;
     }
+
+    .confirmationButton{
+        opacity: 0.4;
+        transition: 0.3s cubic-bezier(0.47, 0, 0.75, 0.72);
+
+        background-color: #86584c
+    }
+
 }
 
 
