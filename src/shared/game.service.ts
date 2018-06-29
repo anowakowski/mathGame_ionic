@@ -62,6 +62,11 @@ export class GameService {
     prepareGemeResultPercentage(gameCount: number, countOfPassGames: number): number{
         return countOfPassGames / gameCount;
     }
+
+    prepareGameScore(isCorrectNumber:boolean, gameScore:number):number{
+        return isCorrectNumber ? gameScore + 1 : gameScore;
+    }
+
 }
 
 
