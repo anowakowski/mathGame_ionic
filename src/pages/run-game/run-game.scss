@@ -17,21 +17,15 @@ page-run-game {
         font-size: larger;
     }
     
-    .chosedButton{
+    .activeButton{
         background-color: #62b362;
-    }
-    
-    .unchosedButton{
-        background-color: #488aff;
+        opacity: 1;
+        transition: 0.3s linear;
+        padding: 30px;
     }
     
     .chosedNumber-chip{
         margin-left: inherit;
-    }
-
-    .button-test {
-        opacity: 1;
-        transition: 2s linear;
     }
 }
 

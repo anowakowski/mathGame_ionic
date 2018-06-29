@@ -1,7 +1,6 @@
-import { Component, ViewChild, Renderer, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { GameTypePage } from '../pages';
-import { retry } from 'rxjs/operator/retry';
+import { Component, Renderer } from '@angular/core';
+import {NavController, NavParams, AlertController } from 'ionic-angular';
+
 import { MathematicOperationService, GameService } from '../../shared/shared';
 import { AnswerModel } from './answerModel';
 
@@ -17,9 +16,6 @@ import { GameFinishPage } from '../game-finish/game-finish';
 })
 export class RunGamePage {
 
-  @ViewChild('myButton', {read: ElementRef}) myButton;
-  @ViewChild('myButton2', {read: ElementRef}) myButton2;
-
   private readonly maxGameCount: number = 5;
 
   mathOperationAsString: string;
@@ -32,7 +28,7 @@ export class RunGamePage {
   runGameModel:RunGameModel;
   mathSignToDisplay:string;
   chosedNumber:number;
-  selected :any;
+  selectedAnswerButton :any;
   answerButtons: Array<AnswerModel>;
   isCorrectNumber: boolean;
   mathType: string;
@@ -73,14 +69,6 @@ export class RunGamePage {
     me.mathType = me.runGameModel.gameType.name;
   }
 
-  changeStyle(){
-    this.render.setElementStyle(this.myButton.nativeElement, 'opacity', '0');
-  }
-
-  changePaddingStyle(){
-    this.render.setElementStyle(this.myButton2.nativeElement, 'padding', '50px');
-  }
-
   tapConfirmAndGoToNext(){
     const me = this;
     me.verifyChosedNumber();
@@ -88,12 +76,12 @@ export class RunGamePage {
   }
 
   tappedAnswerButton(item) {
-    this.selected = (this.selected === item ? null : item); 
+    this.selectedAnswerButton = (this.selectedAnswerButton === item ? null : item); 
     this.chosedNumber = item;
   };
  
-  isActiveButton(item) {
-    return this.selected === item;
+  isActiveAnswereButton(button) {
+    return this.selectedAnswerButton === button;
   };
 
   private prepareButtonsPosition() {
