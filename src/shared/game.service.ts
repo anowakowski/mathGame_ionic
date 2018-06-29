@@ -5,7 +5,7 @@ import { GameTypeModel } from '../models/gameTypeModel';
 
 import * as _ from 'lodash';
 import { GameResultModel } from '../models/gameResultModel';
-import { AnswerModel } from '../pages/run-game/answerModel';
+import { AnswerModel } from '../models/answerModel';
 
 @Injectable()
 export class GameService {

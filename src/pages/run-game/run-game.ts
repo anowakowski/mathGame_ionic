@@ -2,12 +2,10 @@ import { Component, Renderer } from '@angular/core';
 import {NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { MathematicOperationService, GameService } from '../../shared/shared';
-import { AnswerModel } from './answerModel';
+import { AnswerModel } from '../../models/answerModel';
 
 import * as _ from 'lodash';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { RunGameModel } from '../../models/runGameModel';
-import { GameResultModel } from '../../models/gameResultModel';
 import { GameFinishPage } from '../game-finish/game-finish';
 
 @Component({
