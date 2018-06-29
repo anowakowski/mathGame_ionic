@@ -1,5 +1,5 @@
 import { Component, Renderer } from '@angular/core';
-import {NavController, NavParams, AlertController } from 'ionic-angular';
+import {NavController, NavParams, AlertController, ToastController, Toast } from 'ionic-angular';
 
 import { MathematicOperationService, GameService } from '../../shared/shared';
 import { AnswerModel } from '../../models/answerModel';
@@ -39,7 +39,8 @@ export class RunGamePage {
     private mathOperationService: MathematicOperationService,
     private gameService: GameService,
     public alertCtrl: AlertController,
-    public render: Renderer) {
+    public render: Renderer,
+    public toastCtrl: ToastController) {
     this.runGameModel = navParams.data as RunGameModel;
   }
 
@@ -73,9 +74,10 @@ export class RunGamePage {
     me.prepareChoosenNumberAlert();
   }
 
-  tappedAnswerButton(item) {
-    this.selectedAnswerButton = (this.selectedAnswerButton === item ? null : item); 
-    this.chosedNumber = item;
+  tappedAnswerButton(answerValue) {
+    const me = this;
+    me.selectedAnswerButton = (me.selectedAnswerButton === answerValue ? null : answerValue); 
+    me.chosedNumber = answerValue;
   };
  
   isActiveAnswereButton(button) {
@@ -117,17 +119,18 @@ export class RunGamePage {
 
   private prepareChoosenNumberAlert() {
     const me = this;
-    let alert = me.alertCtrl.create({
-      title: "Info choise",
+
+    let toast = me.toastCtrl.create({
       message: me.isCorrectNumber ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
-      buttons: [{
-        text: "go next page",
-        handler: data => {
-          me.nextPageProcessing();
-        }
-      }]
+      duration: 3000,
+      position: 'bottom',
     });
-    alert.present();
+
+    toast.onWillDismiss(() => {
+      me.nextPageProcessing();
+    })
+  
+    toast.present();
   }
 
   private prepareAnswerButtons() {
