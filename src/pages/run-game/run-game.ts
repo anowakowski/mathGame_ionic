@@ -1,5 +1,5 @@
 import { Component, Renderer, ViewChild, ElementRef } from '@angular/core';
-import {NavController, NavParams, AlertController, ToastController, Toast } from 'ionic-angular';
+import {NavController, NavParams, AlertController, ToastController, Toast } from 'ionic-angular/umd';
 
 import { MathematicOperationService, GameService } from '../../shared/shared';
 import { AnswerModel } from '../../models/answerModel';

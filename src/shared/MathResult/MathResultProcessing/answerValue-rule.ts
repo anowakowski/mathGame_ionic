@@ -1,9 +1,9 @@
+import { MathResultBase } from "./mathResult-Base";
+import { MathResultConfigurationModel } from "../../../models/mathResultProcessing/mathResultConfiguration-model";
 import { MathResultModel } from "../../../models/mathResultProcessing/mathResult-model";
-import { MathResultConfigurationModel } from "./mathResultConfiguration-model";
 
-export abstract class MathResultBase {
+export class AnswerValueRule implements MathResultBase {
     runMathResult(configuration:MathResultConfigurationModel): MathResultModel[]{
         throw new Error("Method not implemented.");
     }
 }
-
