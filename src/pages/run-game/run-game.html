@@ -1,10 +1,14 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <ion-title>
-      your game: {{gameCountToDisplay}} your score: {{gameScoreToDisplay}}
+      Game: {{gameCountToDisplay}} Score: {{gameScoreToDisplay}}
     </ion-title>
+    <ion-buttons end >
+        <button ion-button> close</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
+
 <ion-content>
   <ion-card>
     <ion-card-content>
@@ -17,9 +21,6 @@
     </ion-card-content>
   </ion-card>
   <ion-card>
-    <ion-card-header>
-      Choose correct answer
-    </ion-card-header>
     <ion-card-content>
       <ion-buttons *ngFor="let answer of answerButtons" end>
           <button 
