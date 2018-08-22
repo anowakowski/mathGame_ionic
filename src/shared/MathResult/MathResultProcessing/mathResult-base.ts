@@ -23,6 +23,19 @@ export class MathResultBase {
         
     }
 
+    prepareRandomNumber(correctResultToCheck:number, level:Gamelevel, fakeResult1:number = null): number{
+        const me = this;
+        let randomNumber = me.getRandomNumberToMath(level);
+        if (fakeResult1 !== null){
+            if (correctResultToCheck === randomNumber || fakeResult1 === randomNumber){
+                return me.prepareRandomNumber(correctResultToCheck, level, fakeResult1);
+            }
+        } else if (correctResultToCheck === randomNumber || randomNumber === fakeResult1){
+            return me.prepareRandomNumber(correctResultToCheck, level);
+        }
+        return randomNumber;
+    }
+
 }
 
 
