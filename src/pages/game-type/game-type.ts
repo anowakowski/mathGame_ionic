@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular/umd';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GameService } from '../../shared/shared';
 import { GameLevelPage } from '../pages';
 import { RunGameModel } from '../../models/runGameModel';
