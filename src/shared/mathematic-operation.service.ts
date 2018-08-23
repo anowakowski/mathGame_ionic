@@ -6,15 +6,14 @@ export class MathematicOperationService {
 
     constructor() { }
 
-    public getRandomNumberToMath():number{
-        return this.getRandomNumber(100);
-    }
-
     public getRandomPosition():number{
         return this.getRandomNumber(3);
     }
 
-    public preparMathOperationAsString(gameTypeModel: GameTypeModel,oprationRandomNumber1:number,  operationRandomNumber2:number): string{
+    public preparMathOperationAsString(gameTypeModel: GameTypeModel): string{
+        let oprationRandomNumber1:number = this.getRandomNumberToMath();
+        let operationRandomNumber2:number = this.getRandomNumberToMath();
+
         return oprationRandomNumber1.toString().concat(" ", gameTypeModel.mathSign," ", operationRandomNumber2.toString());
     }
 
@@ -59,5 +58,9 @@ export class MathematicOperationService {
 
     private getRandomNumber(range:number):number{
         return Math.floor(Math.random() * range) + 1;
+    }
+    
+    private getRandomNumberToMath():number{
+        return this.getRandomNumber(100);
     }
 }

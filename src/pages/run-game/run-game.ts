@@ -1,5 +1,5 @@
 import { Component, Renderer, ViewChild, ElementRef } from '@angular/core';
-import {NavController, NavParams, AlertController, ToastController, Toast } from 'ionic-angular';
+import {NavController, NavParams, AlertController, ToastController, Toast } from 'ionic-angular/';
 
 import { MathematicOperationService, GameService } from '../../shared/shared';
 import { AnswerModel } from '../../models/answerModel';
@@ -57,14 +57,11 @@ export class RunGamePage {
   setUpMathOperation(){
     const me = this;
 
-    me.mathOperationAsString = me.mathOperationService.preparMathOperationAsString(
-      me.runGameModel.gameType, 
-      me.mathOperationService.getRandomNumberToMath(), 
-      me.mathOperationService.getRandomNumberToMath());
+    me.mathOperationAsString = me.mathOperationService.preparMathOperationAsString(me.runGameModel.gameType);
 
     me.correctResult = me.mathOperationService.prepareCorrectResult(me.mathOperationAsString);
 
-    me.prepareButtonsPosition();
+    me.prepareAnswers();
     me.prepareAnswerButtons();
 
     me.mathType = me.runGameModel.gameType.name;
@@ -95,7 +92,7 @@ export class RunGamePage {
     return this.selectedAnswerButton === button;
   };
 
-  private prepareButtonsPosition() {
+  private prepareAnswers() {
     const me = this;
     me.correctResultPosition = me.mathOperationService.getRandomPosition();
     me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);

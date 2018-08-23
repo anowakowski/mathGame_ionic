@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TimerPage, DashboardPage, GameTimerComponent, RunGamePage, GameTypePage, GameLevelPage, GameInfoPage } from '../pages/pages';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
-import { GameService, MathematicOperationService } from '../shared/shared';
+import { GameService, MathematicOperationService, MathResultService } from '../shared/shared';
 import { GameFinishPage } from '../pages/game-finish/game-finish';
 
 @NgModule({
@@ -48,7 +48,8 @@ import { GameFinishPage } from '../pages/game-finish/game-finish';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GameService,
-    MathematicOperationService
+    MathematicOperationService,
+    MathResultService
   ]
 })
 export class AppModule {}
