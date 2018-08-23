@@ -1,14 +1,17 @@
 [
     {
       "id":"1",
-      "name":"Leve1"
+      "name":"Leve1",
+      "range": "30"
     },
     {
       "id":"2",
-      "name":"Level2"
+      "name":"Level2",
+      "range":"50"
     },
     {
       "id":"3",
-      "name":"Level3"
+      "name":"Level3",
+      "range":"100"
     }
 ]

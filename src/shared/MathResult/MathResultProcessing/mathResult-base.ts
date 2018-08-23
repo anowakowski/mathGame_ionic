@@ -36,6 +36,8 @@ export class MathResultBase {
         return randomNumber;
     }
 
+
+
 }
 
 

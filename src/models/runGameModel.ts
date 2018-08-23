@@ -6,7 +6,8 @@ export class RunGameModel {
     }
 
     public gameType:GameTypeModel; 
-    public gameLevel:string; 
+    public gameLevel:string;
+    public range:number; 
     public gameCount:number; 
     public gameResults:GameResultModel[]
     public gameScore:number;
