@@ -9,8 +9,8 @@ export class FakeResultRule extends MathResultBase {
         let mathResultModelForFakeRundom1:MathResultModel = new MathResultModel();
         let mathResultModelForFakeRundom2:MathResultModel = new MathResultModel();
 
-        let fakeRandomNumber1:number = this.prepareMoreCloserFakeResult(correctResult.result, configuration.gameLevel);
-        let fakeRandomNumber2:number = this.prepareMoreCloserFakeResult(correctResult.result, configuration.gameLevel, fakeRandomNumber1);
+        let fakeRandomNumber1:number = this.prepareMoreCloserFakeResult(correctResult.result, configuration.gameLevel, configuration.range);
+        let fakeRandomNumber2:number = this.prepareMoreCloserFakeResult(correctResult.result, configuration.gameLevel,  configuration.range, fakeRandomNumber1);
 
         mathResultModelForFakeRundom1.isFakeResult = true;
         mathResultModelForFakeRundom1.result = fakeRandomNumber1;
@@ -22,19 +22,23 @@ export class FakeResultRule extends MathResultBase {
     }
 
 
-    private prepareMoreCloserFakeResult(currentResult: number, level:Gamelevel, fakeResult1:number = null): number{
+    private prepareMoreCloserFakeResult(currentResult: number, level:Gamelevel, range:number, fakeResult1:number = null): number{
         const me = this;
         let result: number = 0;
-        if (currentResult > 10 && currentResult < 25){
-          result = currentResult - this.prepareRandomNumber(currentResult, level, fakeResult1);
-        } else if(currentResult > 25 && currentResult < 50){
-          result = currentResult + this.prepareRandomNumber(currentResult, level, fakeResult1);
-        } else if(currentResult > 50 && currentResult < 70){
-          result = currentResult - this.prepareRandomNumber(currentResult, level, fakeResult1);
-        } else if(currentResult > 70 && currentResult < 90){
-            result = currentResult - this.prepareRandomNumber(currentResult, level, fakeResult1);          
-        } else {
-          result = currentResult - this.prepareRandomNumber(currentResult, level, fakeResult1);
+
+        let differenceResult = range - currentResult;
+
+        if (result == 0){
+            this.prepareMoreCloserFakeResult(currentResult, level, range, fakeResult1);
+        }
+
+        let moreCloser = currentResult - differenceResult;
+
+        if (moreCloser > 0 && moreCloser < 10){
+            result = moreCloser;
+        }
+        else{
+            this.prepareMoreCloserFakeResult(currentResult, level, range, fakeResult1);
         }
 
         return result;
