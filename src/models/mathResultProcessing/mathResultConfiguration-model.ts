@@ -6,5 +6,5 @@ export class MathResultConfigurationModel {
     public gameType:GameType;
     public gameMathSignn: string;
     public range:number;
-
+    public answerPositions:number[];
 }
