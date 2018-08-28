@@ -1,8 +1,8 @@
 import { MathResultBase } from "./mathResult-Base";
-import { MathResultConfigurationModel } from "../../../models/mathResultProcessing/mathResultConfiguration-model";
-import { MathResultModel } from "../../../models/mathResultProcessing/mathResult-model";
+import { MathResultConfigurationModel } from "../../../../models/mathResultProcessing/mathResultConfiguration-model";
+import { MathResultModel } from "../../../../models/mathResultProcessing/mathResult-model";
 import * as _ from 'lodash';
-import { Gamelevel } from "../../../enums/gameLevel.enum";
+import { Gamelevel } from "../../../../enums/gameLevel.enum";
 export class FakeResultRule extends MathResultBase {
     runMathResult(configuration : MathResultConfigurationModel, mathResults : Array<MathResultModel>)   : void {
         let correctResult:MathResultModel = _.filter(mathResults, mr => !mr.isFakeResult);

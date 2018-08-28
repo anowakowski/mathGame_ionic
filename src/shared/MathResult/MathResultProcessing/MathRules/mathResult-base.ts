@@ -1,6 +1,6 @@
-import { MathResultModel } from "../../../models/mathResultProcessing/mathResult-model";
-import { MathResultConfigurationModel } from "../../../models/mathResultProcessing/mathResultConfiguration-model";
-import { Gamelevel } from "../../../enums/gameLevel.enum";
+import { MathResultModel } from "../../../../models/mathResultProcessing/mathResult-model";
+import { MathResultConfigurationModel } from "../../../../models/mathResultProcessing/mathResultConfiguration-model";
+import { Gamelevel } from "../../../../enums/gameLevel.enum";
 
 export class MathResultBase {
     runMathResult(configuration : MathResultConfigurationModel, mathResults : Array<MathResultModel>)   : void {
