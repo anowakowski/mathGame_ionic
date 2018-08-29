@@ -3,6 +3,7 @@ import { MathResultConfigurationModel } from "../../../../models/mathResultProce
 import { MathResultModel } from "../../../../models/mathResultProcessing/mathResult-model";
 import * as _ from 'lodash';
 import { Gamelevel } from "../../../../enums/gameLevel.enum";
+
 export class FakeResultRule extends MathResultBase {
     runMathResult(configuration : MathResultConfigurationModel, mathResults : Array<MathResultModel>)   : void {
         let correctResult:MathResultModel = _.find(mathResults, mr => !mr.isFakeResult);
@@ -21,26 +22,28 @@ export class FakeResultRule extends MathResultBase {
         mathResults.push(mathResultModelForFakeRundom2);
     }
 
-
     private prepareMoreCloserFakeResult(currentResult: number, level:Gamelevel, range:number, fakeResult1:number = null): number{
         const me = this;
-        let result: number = 0;
+        let { differenceResult, randomNumber }: { differenceResult: number; randomNumber: number; } = this.getDifferenceNumber(currentResult, level, fakeResult1);
 
-        let differenceResult = range - currentResult;
-
-        if (differenceResult == 0){
-            this.prepareMoreCloserFakeResult(currentResult, level, range, fakeResult1);
+        if (me.isCorrectNumber(differenceResult)){
+            return randomNumber;
+        } else {
+            return me.prepareMoreCloserFakeResult(currentResult, level, range, fakeResult1);
         }
+    }
 
-        let moreCloser = currentResult - differenceResult;
+    private getDifferenceNumber(currentResult: number, level: Gamelevel, fakeResult1: number) {
+        let me = this;
+        let randomNumber: number = me.prepareRandomNumber(currentResult, level, fakeResult1);
+        let differenceResult: number = currentResult - randomNumber;
+        return { differenceResult, randomNumber };
+    }
 
-        if (moreCloser > 0 && moreCloser < 10){
-            result = moreCloser;
-        }
-        else{
-            this.prepareMoreCloserFakeResult(currentResult, level, range, fakeResult1);
-        }
-
-        return result;
+    private isCorrectNumber(differenceResult: number): boolean {
+        if (differenceResult !== 0 && differenceResult > 0 && differenceResult < 10) {
+            return true;
+        } 
+        return false;
     }
 }

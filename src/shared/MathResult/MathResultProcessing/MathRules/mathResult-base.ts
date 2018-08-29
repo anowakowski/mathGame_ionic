@@ -20,7 +20,6 @@ export class MathResultBase {
         } else {
             return this.getRandomNumber(100);
         }
-        
     }
 
     prepareRandomNumber(correctResultToCheck:number, level:Gamelevel, fakeResult1:number = null): number{
