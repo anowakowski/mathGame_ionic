@@ -7,8 +7,7 @@ export class MathResultBase {
     runMathResult(configuration : MathResultConfigurationModel, mathResults : Array<MathResultModel>)   : void {
         throw new Error("Method not implemented.");
     }
-
-    
+       
     getRandomNumber(range:number):number{
         return Math.floor(Math.random() * range) + 1;
     }

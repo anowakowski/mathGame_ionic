@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import { Gamelevel } from "../../../../enums/gameLevel.enum";
 export class FakeResultRule extends MathResultBase {
     runMathResult(configuration : MathResultConfigurationModel, mathResults : Array<MathResultModel>)   : void {
-        let correctResult:MathResultModel = _.filter(mathResults, mr => !mr.isFakeResult);
+        let correctResult:MathResultModel = _.find(mathResults, mr => !mr.isFakeResult);
         let mathResultModelForFakeRundom1:MathResultModel = new MathResultModel();
         let mathResultModelForFakeRundom2:MathResultModel = new MathResultModel();
 
@@ -28,7 +28,7 @@ export class FakeResultRule extends MathResultBase {
 
         let differenceResult = range - currentResult;
 
-        if (result == 0){
+        if (differenceResult == 0){
             this.prepareMoreCloserFakeResult(currentResult, level, range, fakeResult1);
         }
 

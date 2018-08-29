@@ -14,7 +14,7 @@ export class CorrectResult extends MathResultBase {
         result = eval(mathOperation);
 
         mathResultModel.resultAsString = mathOperation;
-        mathResultModel.isFakeResult = true;
+        mathResultModel.isFakeResult = false;
         mathResultModel.result = result;
 
         mathResults.push(mathResultModel);

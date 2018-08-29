@@ -6,10 +6,15 @@ import { GameTypeModel } from '../models/gameTypeModel';
 import * as _ from 'lodash';
 import { GameResultModel } from '../models/gameResultModel';
 import { AnswerModel } from '../models/answerModel';
+import { MathResultService } from './MathResult/math-result.service';
 
 @Injectable()
 export class GameService {
-    constructor(public http: HttpClient) { }
+    constructor(public http: HttpClient, public mathResultService: MathResultService) { }
+
+    testingMathResultServices(){
+        this.mathResultService.RunAllMathRules();
+    }
 
     getGameType(){
         const me = this;

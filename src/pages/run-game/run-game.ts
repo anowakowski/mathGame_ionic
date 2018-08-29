@@ -70,6 +70,8 @@ export class RunGamePage {
   tapConfirmAndGoToNext(){
     const me = this;
 
+    me.gameService.testingMathResultServices();
+
     if (me.chosedNumber === undefined){
       return;
     }
