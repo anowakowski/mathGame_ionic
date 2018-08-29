@@ -1,4 +1,4 @@
-import { Gamelevel } from "../../enums/gamelevel.enum";
+import { Gamelevel } from "../../enums/gameLevel.enum";
 import { GameType } from "../../enums/gameType.enum";
 
 export class MathResultConfigurationModel {

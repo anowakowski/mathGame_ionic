@@ -2,6 +2,7 @@ import { MathResultModel } from "../../../../models/mathResultProcessing/mathRes
 import { MathResultConfigurationModel } from "../../../../models/mathResultProcessing/mathResultConfiguration-model";
 import { Gamelevel } from "../../../../enums/gameLevel.enum";
 
+
 export class MathResultBase {
     runMathResult(configuration : MathResultConfigurationModel, mathResults : Array<MathResultModel>)   : void {
         throw new Error("Method not implemented.");
