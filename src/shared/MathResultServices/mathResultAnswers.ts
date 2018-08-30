@@ -33,7 +33,6 @@ export class MathResultAnswers {
 
         mathResultModel.result = answer;
         mathResultModel.isCorrectNumber = isCorrectResult;
-        mathResultModel.position = "0";
         
         if (isCorrectResult){
             mathResultModel.mathOperationAsString = mathOperation;
@@ -46,10 +45,10 @@ export class MathResultAnswers {
         let answers:Array<number> = [correctResult];
 
         while(answers.length < 3){
-            let r:number = _.random(correctResult - diff, correctResult + diff);
+            let rundomNumber:number = _.random(correctResult - diff, correctResult + diff);
 
-            if (!_.find(answers, a => a == r)){
-                answers.push(r);
+            if (!_.find(answers, a => a === rundomNumber)){
+                answers.push(rundomNumber);
             }
         }
 
