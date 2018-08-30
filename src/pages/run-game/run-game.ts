@@ -31,7 +31,7 @@ export class RunGamePage {
   mathSignToDisplay:string;
   chosedNumber:number;
   selectedAnswerButton :any;
-  answerButtons: Array<AnswerModel>;
+  answerButtons: Array<MathResultModel>;
   isCorrectNumber: boolean;
   mathType: string;
   gameCountToDisplay: number;
@@ -80,8 +80,10 @@ export class RunGamePage {
     me.prepareChoosenNumberAlert();
   }
 
-  tappedAnswerButton(answerValue) {
+  tappedAnswerButton(mathResultModel:MathResultModel) {
     const me = this;
+    let answerValue = mathResultModel.result
+
     me.selectedAnswerButton = (me.selectedAnswerButton === answerValue ? null : answerValue); 
     me.chosedNumber = answerValue;
 
@@ -145,12 +147,12 @@ export class RunGamePage {
 
   private prepareAnswerButtons() {
     const me = this;
-    let mathresultAnswers:Array<MathResultModel> = me.gameService.getResultAnswers(me.runGameModel);
+    let mathResultAnswers:Array<MathResultModel> = me.gameService.getResultAnswers(me.runGameModel);
 
     let answers: Array<AnswerModel> = new Array<AnswerModel>() ;
     answers.push(new AnswerModel("correctResult", me.correctResult, me.correctResultPosition));
     answers.push(new AnswerModel("fakeResult1", me.fakeResult1, me.fakeResult1Position));
     answers.push(new AnswerModel("fakeResult2", me.fakeResult2, me.fakeResult2Position));
-    me.answerButtons = _.sortBy(answers, a => a.position);
+    me.answerButtons = _.sortBy(mathResultAnswers, m => m.position);
   }
 }

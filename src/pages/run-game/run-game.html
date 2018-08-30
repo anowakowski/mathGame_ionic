@@ -24,10 +24,10 @@
       <ion-buttons *ngFor="let answer of answerButtons" end>
           <button 
             class="mathOperationResult-Button"  
-            [ngClass]="{activeButton: isActiveAnswereButton(answer.value)}" 
-            (click)="tappedAnswerButton(answer.value)" 
+            [ngClass]="{activeButton: isActiveAnswereButton(answer.result)}" 
+            (click)="tappedAnswerButton(answer)" 
             ion-button full round>
-            {{answer.value}}
+            {{answer.result}}
           </button>
       </ion-buttons>
     </ion-card-content>
