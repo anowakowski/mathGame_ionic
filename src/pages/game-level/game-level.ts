@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RunGamePage, GameInfoPage } from '../pages';
 import { GameService } from '../../shared/shared';
 import { RunGameModel } from '../../models/runGameModel';
+import { GameLevelModel } from '../../models/GameLevelModel';
 
 @Component({
   selector: 'page-game-level',
@@ -10,7 +11,7 @@ import { RunGameModel } from '../../models/runGameModel';
 })
 export class GameLevelPage {
   private runGameModel: RunGameModel;
-  gameLevels: any[];
+  gameLevels: GameLevelModel[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private gameService: GameService) {
     this.runGameModel = navParams.data as RunGameModel;
   }

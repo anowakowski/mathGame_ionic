@@ -5,26 +5,28 @@ import { GameTypeModel } from '../models/gameTypeModel';
 
 import * as _ from 'lodash';
 import { GameResultModel } from '../models/gameResultModel';
-import { AnswerModel } from '../models/answerModel';
+
 import { MathResultService } from './MathResultServices/math-result.service';
+import { MathResultModel } from '../models/mathResultProcessing/mathResult-model';
+import { GameLevelModel } from '../models/GameLevelModel';
 
 
 @Injectable()
 export class GameService {
     constructor(public http: HttpClient, public mathResultService: MathResultService) { }
 
-    testingMathResultServices(){
-        this.mathResultService.RunAllMathRules();
+    getResultAnswers(runGameModel:RunGameModel): Array<MathResultModel> {
+        return this.mathResultService.getResultAnswers(runGameModel);
     }
 
-    getGameType(){
+    getGameType():Promise<GameTypeModel[]>{
         const me = this;
         return me.http.get<GameTypeModel[]> ('assets/data/gameTypes.json').toPromise().then(response => response as GameTypeModel[]);
     }
 
-    getGameLevel(){
+    getGameLevel():Promise<GameLevelModel[]>{
         const me = this;
-        return me.http.get('assets/data/gameLevels.json').toPromise().then(response => response as RunGameModel[]);
+        return me.http.get('assets/data/gameLevels.json').toPromise().then(response => response as GameLevelModel[]);
     }
 
     prepareNewResultModel(isCorrectNumber: boolean, correctNumber:number, chosedNumber: number, mathOperation:string, gameNumber:number) : GameResultModel {

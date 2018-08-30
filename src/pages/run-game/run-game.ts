@@ -7,6 +7,8 @@ import { AnswerModel } from '../../models/answerModel';
 import * as _ from 'lodash';
 import { RunGameModel } from '../../models/runGameModel';
 import { GameFinishPage } from '../game-finish/game-finish';
+import { MathResultAnswers } from '../../shared/MathResultServices/mathResultAnswers';
+import { MathResultModel } from '../../models/mathResultProcessing/mathResult-model';
 
 @Component({
   selector: 'page-run-game',
@@ -69,8 +71,6 @@ export class RunGamePage {
 
   tapConfirmAndGoToNext(){
     const me = this;
-
-    me.gameService.testingMathResultServices();
 
     if (me.chosedNumber === undefined){
       return;
@@ -145,6 +145,8 @@ export class RunGamePage {
 
   private prepareAnswerButtons() {
     const me = this;
+    let mathresultAnswers:Array<MathResultModel> = me.gameService.getResultAnswers(me.runGameModel);
+
     let answers: Array<AnswerModel> = new Array<AnswerModel>() ;
     answers.push(new AnswerModel("correctResult", me.correctResult, me.correctResultPosition));
     answers.push(new AnswerModel("fakeResult1", me.fakeResult1, me.fakeResult1Position));
