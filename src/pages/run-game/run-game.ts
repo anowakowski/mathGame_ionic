@@ -59,14 +59,13 @@ export class RunGamePage {
   setUpMathOperation(){
     const me = this;
 
-    me.mathOperationAsString = me.mathOperationService.preparMathOperationAsString(me.runGameModel.gameType);
+    let mathResultAnswers:Array<MathResultModel> = me.gameService.getResultAnswers(me.runGameModel);
+    let correctResult:MathResultModel = _.find(mathResultAnswers, m => m.isCorrectNumber);
 
-    me.correctResult = me.mathOperationService.prepareCorrectResult(me.mathOperationAsString);
-
-    me.prepareAnswers();
-    me.prepareAnswerButtons();
-
+    me.mathOperationAsString = correctResult.mathOperationAsString
+    me.correctResult = correctResult.result
     me.mathType = me.runGameModel.gameType.name;
+    me.answerButtons = _.sortBy(mathResultAnswers, m => m.position);
   }
 
   tapConfirmAndGoToNext(){
@@ -95,15 +94,6 @@ export class RunGamePage {
   isActiveAnswereButton(button) {
     return this.selectedAnswerButton === button;
   };
-
-  private prepareAnswers() {
-    const me = this;
-    me.correctResultPosition = me.mathOperationService.getRandomPosition();
-    me.fakeResult1Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3);
-    me.fakeResult2Position = me.mathOperationService.prepareRandomNumber(me.correctResultPosition, 3, me.fakeResult1Position);
-    me.fakeResult1 = me.mathOperationService.prepareMoreCloserFakeResult(me.correctResult);
-    me.fakeResult2 = me.mathOperationService.prepareMoreCloserFakeResult(me.correctResult, me.fakeResult1);
-  }
 
   private nextPageProcessing(): void {
     const me = this;
@@ -143,16 +133,5 @@ export class RunGamePage {
     })
   
     toast.present();
-  }
-
-  private prepareAnswerButtons() {
-    const me = this;
-    let mathResultAnswers:Array<MathResultModel> = me.gameService.getResultAnswers(me.runGameModel);
-
-    let answers: Array<AnswerModel> = new Array<AnswerModel>() ;
-    answers.push(new AnswerModel("correctResult", me.correctResult, me.correctResultPosition));
-    answers.push(new AnswerModel("fakeResult1", me.fakeResult1, me.fakeResult1Position));
-    answers.push(new AnswerModel("fakeResult2", me.fakeResult2, me.fakeResult2Position));
-    me.answerButtons = _.sortBy(mathResultAnswers, m => m.position);
   }
 }
