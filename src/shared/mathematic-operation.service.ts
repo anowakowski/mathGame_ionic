@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GameTypeModel } from '../models/gameTypeModel';
+import { GameTypeModel } from '../models/gameType-model';
 
 @Injectable()
 export class MathematicOperationService {

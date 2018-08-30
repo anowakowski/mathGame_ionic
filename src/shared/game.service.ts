@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RunGameModel } from '../models/runGameModel';
-import { GameTypeModel } from '../models/gameTypeModel';
+import { RunGameModel } from '../models/runGame-model';
+import { GameTypeModel } from '../models/gameType-model';
 
 import * as _ from 'lodash';
-import { GameResultModel } from '../models/gameResultModel';
+import { GameResultModel } from '../models/gameResult-model';
 
 import { MathResultService } from './MathResultServices/math-result.service';
-import { MathResultModel } from '../models/mathResultProcessing/mathResult-model';
-import { GameLevelModel } from '../models/GameLevelModel';
+import { MathResultModel } from '../models/mathResult-model';
+import { GameLevelModel } from '../models/gameLevel-model';
 
 
 @Injectable()

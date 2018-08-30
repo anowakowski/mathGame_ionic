@@ -1,5 +1,5 @@
-import { Gamelevel } from "../../enums/gameLevel.enum";
-import { GameType } from "../../enums/gameType.enum";
+import { Gamelevel } from "../enums/gameLevel.enum";
+import { GameType } from "../enums/gameType.enum";
 
 export class MathResultConfigurationModel {
     public gameLevel:Gamelevel;

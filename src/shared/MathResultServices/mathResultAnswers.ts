@@ -1,5 +1,5 @@
-import { MathResultConfigurationModel } from "../../models/mathResultProcessing/mathResultConfiguration-model";
-import { MathResultModel } from "../../models/mathResultProcessing/mathResult-model";
+import { MathResultConfigurationModel } from "../../models/mathResultConfiguration-model";
+import { MathResultModel } from "../../models/mathResult-model";
 import * as _ from 'lodash';
 import { Gamelevel } from "../../enums/gameLevel.enum";
 
@@ -44,7 +44,7 @@ export class MathResultAnswers {
     private getDifferences(correctResult:number, diff:number):Array<number>{
         let answers:Array<number> = [correctResult];
 
-        while(answers.length < 3){
+        while(answers.length < 4){
             let rundomNumber:number = _.random(correctResult - diff, correctResult + diff);
 
             if (!_.find(answers, a => a === rundomNumber)){

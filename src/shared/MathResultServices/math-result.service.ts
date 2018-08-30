@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { MathResultAnswers } from './mathResultAnswers';
-import { MathResultConfigurationModel } from '../../models/mathResultProcessing/mathResultConfiguration-model';
-import { RunGameModel } from '../../models/runGameModel';
+import { MathResultConfigurationModel } from '../../models/mathResultConfiguration-model';
+import { RunGameModel } from '../../models/runGame-model';
 import { Gamelevel } from '../../enums/gameLevel.enum';
 import { GameType } from '../../enums/gameType.enum';
-import { MathResultModel } from '../../models/mathResultProcessing/mathResult-model';
+import { MathResultModel } from '../../models/mathResult-model';
 
 @Injectable()
 export class MathResultService {

@@ -2,13 +2,12 @@ import { Component, Renderer, ViewChild, ElementRef } from '@angular/core';
 import {NavController, NavParams, AlertController, ToastController, Toast } from 'ionic-angular/';
 
 import { MathematicOperationService, GameService } from '../../shared/shared';
-import { AnswerModel } from '../../models/answerModel';
 
 import * as _ from 'lodash';
-import { RunGameModel } from '../../models/runGameModel';
+import { RunGameModel } from '../../models/runGame-model';
 import { GameFinishPage } from '../game-finish/game-finish';
 import { MathResultAnswers } from '../../shared/MathResultServices/mathResultAnswers';
-import { MathResultModel } from '../../models/mathResultProcessing/mathResult-model';
+import { MathResultModel } from '../../models/mathResult-model';
 
 @Component({
   selector: 'page-run-game',

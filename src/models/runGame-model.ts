@@ -1,6 +1,6 @@
-import { GameResultModel } from "./gameResultModel";
-import { GameTypeModel } from "./gameTypeModel";
-import { GameLevelModel } from "./GameLevelModel";
+import { GameResultModel } from "./gameResult-model";
+import { GameTypeModel } from "./gameType-model";
+import { GameLevelModel } from "./gameLevel-model";
 
 export class RunGameModel {
     constructor(){

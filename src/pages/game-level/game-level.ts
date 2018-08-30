@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RunGamePage, GameInfoPage } from '../pages';
 import { GameService } from '../../shared/shared';
-import { RunGameModel } from '../../models/runGameModel';
-import { GameLevelModel } from '../../models/GameLevelModel';
+import { RunGameModel } from '../../models/runGame-model';
+import { GameLevelModel } from '../../models/gameLevel-model';
 
 @Component({
   selector: 'page-game-level',

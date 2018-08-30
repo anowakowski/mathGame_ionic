@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GameService } from '../../shared/shared';
 import { GameLevelPage } from '../pages';
-import { RunGameModel } from '../../models/runGameModel';
-import { GameTypeModel } from '../../models/gameTypeModel';
+import { RunGameModel } from '../../models/runGame-model';
+import { GameTypeModel } from '../../models/gameType-model';
 
 
 @Component({
