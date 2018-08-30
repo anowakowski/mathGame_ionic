@@ -6,7 +6,8 @@ import { GameTypeModel } from '../models/gameTypeModel';
 import * as _ from 'lodash';
 import { GameResultModel } from '../models/gameResultModel';
 import { AnswerModel } from '../models/answerModel';
-import { MathResultService } from './MathResult/math-result.service';
+import { MathResultService } from './MathResultServices/math-result.service';
+
 
 @Injectable()
 export class GameService {

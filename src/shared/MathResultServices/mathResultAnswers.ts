@@ -1,13 +1,11 @@
-import { MathResultBase } from "./mathResult-Base";
-import { MathResultConfigurationModel } from "../../../../models/mathResultProcessing/mathResultConfiguration-model";
-import { MathResultModel } from "../../../../models/mathResultProcessing/mathResult-model";
+import { MathResultConfigurationModel } from "../../models/mathResultProcessing/mathResultConfiguration-model";
+import { MathResultModel } from "../../models/mathResultProcessing/mathResult-model";
 import * as _ from 'lodash';
-import { Gamelevel } from "../../../../enums/gameLevel.enum";
-import { leave } from "@angular/core/src/profile/wtf_impl";
+import { Gamelevel } from "../../enums/gameLevel.enum";
 
-export class GenereateResultAnswers extends MathResultBase {
-    runMathResult(configuration : MathResultConfigurationModel, mathResults : Array<MathResultModel>) : void {
-        
+export class MathResultAnswers {
+    generateAnswers(configuration : MathResultConfigurationModel, ) : Array<MathResultModel> {
+        let mathResults : Array<MathResultModel> = new Array<MathResultModel>();
         let oprationRandomNumber1:number = this.getRandomNumberToMath(configuration.gameLevel);
         let operationRandomNumber2:number = this.getRandomNumberToMath(configuration.gameLevel);
         
@@ -20,6 +18,8 @@ export class GenereateResultAnswers extends MathResultBase {
 
         this.prepareAnswers(answers, mathResults, correctResult, mathOperation);
         this.getAnswerPosition(mathResults);
+
+        return mathResults;
     }
 
     private prepareAnswers(answers: number[], mathResults: MathResultModel[], correctResult: number, mathOperation: string) {
@@ -69,4 +69,18 @@ export class GenereateResultAnswers extends MathResultBase {
             })
         });
     }
+
+    private getRandomNumber(range:number):number{
+        return Math.floor(Math.random() * range) + 1;
+    }
+    
+    private getRandomNumberToMath(level: Gamelevel): number {
+        if (level == Gamelevel.Level1){
+            return this.getRandomNumber(30);    
+        } else if (level == Gamelevel.Level2){
+            return this.getRandomNumber(50);
+        } else {
+            return this.getRandomNumber(100);
+        }
+    }    
 }
