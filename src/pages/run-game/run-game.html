@@ -32,16 +32,46 @@
       </ion-buttons>
 
       <ion-grid> 
-          <ion-row  justify-content-center align-items-center style="height: 100%; margin-bottom:1.5em;">
+          <ion-row justify-content-center align-items-center style="height: 100%; margin-bottom:1.5em;">
             <ion-buttons *ngFor="let answerButtonFs of answerButtonsFirstSection; let i = index" [attr.data-index]="i">
-              <div *ngIf="i == 0"><button style="margin-right:1.5em;" ion-button round outline large>{{answerButtonFs.result}}</button></div>
-              <div *ngIf="i == 1"><button ion-button round outline large>{{answerButtonFs.result}}</button></div>
+              <div *ngIf="i == 0">
+                <button 
+                  style="margin-right:1.5em;" 
+                  [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
+                  (click)="tappedAnswerButton(answerButtonFs)" 
+                  ion-button round outline large>
+                    {{answerButtonFs.result}}
+                  </button>
+              </div>
+              <div *ngIf="i == 1">
+                <button
+                  [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
+                  (click)="tappedAnswerButton(answerButtonFs)"  
+                  ion-button round outline large>
+                    {{answerButtonFs.result}}
+                </button>
+              </div>
             </ion-buttons>
           </ion-row>
           <ion-row justify-content-center align-items-center style="height: 100%">
             <ion-buttons *ngFor="let answerButtonSc of answerButtonsSecondSection; let i = index" [attr.data-index]="i">
-              <button *ngIf="i == 0" style="margin-right:1.5em;"  ion-button round outline large>{{answerButtonSc.result}}</button>
-              <button *ngIf="i == 1" ion-button round outline large>{{answerButtonSc.result}}</button>
+              <div *ngIf="i == 0">
+                <button 
+                  [ngClass]="{activeButton: isActiveAnswereButton(answerButtonSc.result)}" 
+                  (click)="tappedAnswerButton(answerButtonSc)"                   
+                  style="margin-right:1.5em;"  
+                  ion-button round outline large>
+                    {{answerButtonSc.result}}
+                </button>
+              </div>
+              <div *ngIf="i == 1">
+                <button
+                [ngClass]="{activeButton: isActiveAnswereButton(answerButtonSc.result)}" 
+                (click)="tappedAnswerButton(answerButtonSc)"   
+                  ion-button round outline large>
+                    {{answerButtonSc.result}}
+                  </button>
+              </div>
             </ion-buttons>
           </ion-row>
       </ion-grid>
