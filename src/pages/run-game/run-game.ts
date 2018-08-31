@@ -71,10 +71,7 @@ export class RunGamePage {
 
     me.answerButtonsFirstSection = _.filter(answerButtons, ab => ab.position <= 2);
     me.answerButtonsSecondSection = _.filter(answerButtons, ab => ab.position > 2);
-
-    console.log(this.answerButtonsFirstSection)
-
-  }
+ }
 
   tapConfirmAndGoToNext(){
     const me = this;
