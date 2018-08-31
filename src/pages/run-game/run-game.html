@@ -8,7 +8,7 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="card-background-page">
   <ion-card>
     <ion-card-content>
         <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
@@ -21,16 +21,6 @@
   </ion-card>
   <ion-card>
     <ion-card-content>
-      <ion-buttons *ngFor="let answer of answerButtons" end>
-          <button 
-            class="mathOperationResult-Button"  
-            [ngClass]="{activeButton: isActiveAnswereButton(answer.result)}" 
-            (click)="tappedAnswerButton(answer)" 
-            ion-button full round>
-            {{answer.result}}
-          </button>
-      </ion-buttons>
-
       <ion-grid> 
           <ion-row justify-content-center align-items-center style="height: 100%; margin-bottom:1.0em;">
             <ion-buttons *ngFor="let answerButtonFs of answerButtonsFirstSection; let i = index" [attr.data-index]="i">
@@ -40,7 +30,9 @@
                   [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
                   (click)="tappedAnswerButton(answerButtonFs)" 
                   ion-button round outline large>
-                    {{answerButtonFs.result}}
+                    <span class="resultVaueText-size text-fontStyle">
+                      {{answerButtonFs.result}}
+                    </span>
                   </button>
               </div>
               <div *ngIf="i == 1">
@@ -48,7 +40,9 @@
                   [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
                   (click)="tappedAnswerButton(answerButtonFs)"  
                   ion-button round outline large>
-                    {{answerButtonFs.result}}
+                  <span class="resultVaueText-size text-fontStyle">
+                      {{answerButtonFs.result}}
+                  </span>
                 </button>
               </div>
             </ion-buttons>
@@ -61,7 +55,9 @@
                   (click)="tappedAnswerButton(answerButtonSc)"                   
                   style="margin-right:1.0em;"  
                   ion-button round outline large>
-                    {{answerButtonSc.result}}
+                  <span class="resultVaueText-size text-fontStyle">
+                      {{answerButtonSc.result}}
+                  </span>
                 </button>
               </div>
               <div *ngIf="i == 1">
@@ -69,7 +65,9 @@
                 [ngClass]="{activeButton: isActiveAnswereButton(answerButtonSc.result)}" 
                 (click)="tappedAnswerButton(answerButtonSc)"   
                   ion-button round outline large>
-                    {{answerButtonSc.result}}
+                  <span class="resultVaueText-size text-fontStyle">
+                      {{answerButtonSc.result}}
+                  </span>
                   </button>
               </div>
             </ion-buttons>
@@ -85,6 +83,10 @@
       </button>
     </ion-card-content>
   </ion-card>
-
+  <ion-card>
+      
+      <div class="card-title">São Paulo</div>
+      <div class="card-subtitle">41 Listings</div>
+    </ion-card>
 
 </ion-content>
