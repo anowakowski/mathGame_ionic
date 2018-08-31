@@ -56,17 +56,18 @@ export class MathResultAnswers {
     }
 
     private getAnswerPosition(mathResults:Array<MathResultModel>){
-        let answerPositions:number[] = [1,2,3];
+        let answerPositions:number[] = [1,2,3,4];
         let shuffledPositons:number[] = _.shuffle(answerPositions);
 
         _.forEach(shuffledPositons, shufflePos => {
-            _.forEach(mathResults, mathResult => {
-                if (mathResult.position !== null || mathResult.position !== undefined){
+           _.forEach(mathResults, mathResult => {
+                if (mathResult.position === null || mathResult.position === undefined || mathResult.position === shufflePos){
                     mathResult.position = shufflePos;
-                    return;
+                    return false;
                 }
             })
         });
+
     }
 
     private getRandomNumber(range:number):number{

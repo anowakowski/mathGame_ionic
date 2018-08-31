@@ -30,7 +30,9 @@ export class RunGamePage {
   mathSignToDisplay:string;
   chosedNumber:number;
   selectedAnswerButton :any;
-  answerButtons: Array<MathResultModel>;
+ 
+  answerButtonsFirstSection:Array<MathResultModel>;
+  answerButtonsSecondSection:Array<MathResultModel>;
   isCorrectNumber: boolean;
   mathType: string;
   gameCountToDisplay: number;
@@ -60,11 +62,18 @@ export class RunGamePage {
 
     let mathResultAnswers:Array<MathResultModel> = me.gameService.getResultAnswers(me.runGameModel);
     let correctResult:MathResultModel = _.find(mathResultAnswers, m => m.isCorrectNumber);
+    let  answerButtons: Array<MathResultModel>;
 
     me.mathOperationAsString = correctResult.mathOperationAsString
     me.correctResult = correctResult.result
     me.mathType = me.runGameModel.gameType.name;
-    me.answerButtons = _.sortBy(mathResultAnswers, m => m.position);
+    answerButtons = _.sortBy(mathResultAnswers, m => m.position);
+
+    me.answerButtonsFirstSection = _.filter(answerButtons, ab => ab.position <= 2);
+    me.answerButtonsSecondSection = _.filter(answerButtons, ab => ab.position > 2);
+
+    console.log(this.answerButtonsFirstSection)
+
   }
 
   tapConfirmAndGoToNext(){

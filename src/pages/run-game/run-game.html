@@ -31,14 +31,18 @@
           </button>
       </ion-buttons>
 
-      <ion-grid *ngFor="let answer of answerButtons; let i = index" [attr.data-index]="i"> 
+      <ion-grid> 
           <ion-row  justify-content-center align-items-center style="height: 100%; margin-bottom:1.5em;">
-              <button style="margin-right:1.5em;" ion-button round outline large>24</button>
-              <button ion-button round outline large>24</button>
+            <ion-buttons *ngFor="let answerButtonFs of answerButtonsFirstSection; let i = index" [attr.data-index]="i">
+              <div *ngIf="i == 0"><button style="margin-right:1.5em;" ion-button round outline large>{{answerButtonFs.result}}</button></div>
+              <div *ngIf="i == 1"><button ion-button round outline large>{{answerButtonFs.result}}</button></div>
+            </ion-buttons>
           </ion-row>
           <ion-row justify-content-center align-items-center style="height: 100%">
-              <button style="margin-right:1.5em;"  ion-button round outline large>24</button>
-              <button ion-button round outline large>24</button>
+            <ion-buttons *ngFor="let answerButtonSc of answerButtonsSecondSection; let i = index" [attr.data-index]="i">
+              <button *ngIf="i == 0" style="margin-right:1.5em;"  ion-button round outline large>{{answerButtonSc.result}}</button>
+              <button *ngIf="i == 1" ion-button round outline large>{{answerButtonSc.result}}</button>
+            </ion-buttons>
           </ion-row>
       </ion-grid>
     </ion-card-content>
