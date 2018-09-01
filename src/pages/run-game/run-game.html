@@ -13,10 +13,10 @@
     <ion-card-content>
         <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
         <hr/>
-        <ion-icon name="calculator"></ion-icon>
-        <span class="mathOperation-font"> {{mathType}}:
-          <span><b>{{mathOperationAsString}}</b></span>
-        </span><ion-icon name="md-bulb"></ion-icon>
+       
+        <span class="mathOperation-font">  <ion-icon name="calculator"></ion-icon> 
+          <span><b>{{mathOperationAsString}} <ion-icon name="md-bulb"></ion-icon></b></span>
+        </span>
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -73,20 +73,13 @@
             </ion-buttons>
           </ion-row>
       </ion-grid>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-content>
       <button #confiramtionButton ion-button full round (click)="tapConfirmAndGoToNext()" class="confirmationButton">
-        <span *ngIf="!chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> Please choose your answer</ion-icon></span>
-        <span *ngIf="chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> tap and confirm</ion-icon></span>
-      </button>
-    </ion-card-content>
+          <span *ngIf="!chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> Please choose your answer</ion-icon></span>
+          <span *ngIf="chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> tap and confirm</ion-icon></span>
+        </button>
+   </ion-card-content>
   </ion-card>
-  <ion-card>
-      
-      <div class="card-title">São Paulo</div>
-      <div class="card-subtitle">41 Listings</div>
-    </ion-card>
+
+
 
 </ion-content>

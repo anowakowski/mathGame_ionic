@@ -13,8 +13,8 @@ page-run-game {
     
     .mathOperation-font{
         text-align: center;
-        font-size: 20px;
-        font-family: "Times New Roman", Georgia, Serif;
+        font-size: 2.5em;
+        font-family: Comic Sans MS, cursive, sans-serif; 
         font-style: italic;
         color: grey;
         padding-left: 5px;
@@ -51,14 +51,24 @@ page-run-game {
 
     .button-outline-ios {
         border-width: 2px;
+        border-color: #488aff;
+        color: #488aff;
     }
 
     .button-large-ios {
-        height: 4.5em;
-        width: 4.5em;
-        font-size: 2.5rem;
+        height: 4.3em;
+        width: 4.3em;
+        font-size: 2.3rem;
         padding: 0 1em;
         font-family: Comic Sans MS, cursive, sans-serif !important; 
+    }
+
+    .content-ios {
+        color: #000;
+        //background-color: rgb(140, 182, 132);
+        background-image: url('../../assets/imgs/math_background.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
     }
 
     .resultVaueText-size{
@@ -72,8 +82,10 @@ page-run-game {
         ion-card {
             position: relative;
             text-align: center;
+            background: #ffffffe8;
+            
         }
-    
+    /*
         .card-title {
             position: absolute;
             top: 36%;
@@ -92,7 +104,7 @@ page-run-game {
             color: #fff;
             font-family: Comic Sans MS, cursive, sans-serif
         }
-        
+        */
     }
     
 
