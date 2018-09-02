@@ -65,7 +65,7 @@ page-run-game {
 
     .content-ios {
         color: #000;
-        //background-color: rgb(140, 182, 132);
+        background-color: rgb(140, 182, 132);
         background-image: url('../../assets/imgs/math_background.jpg');
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -82,29 +82,10 @@ page-run-game {
         ion-card {
             position: relative;
             text-align: center;
-            background: #ffffffe8;
-            
+            background: rgba(31, 29, 29, 0.96);
+  
         }
-    /*
-        .card-title {
-            position: absolute;
-            top: 36%;
-            font-size: 2.0em;
-            width: 100%;
-            font-weight: bold;
-            color: #fff;
-            font-family: Comic Sans MS, cursive, sans-serif
-        }
-    
-        .card-subtitle {
-            font-size: 1.0em;
-            position: absolute;
-            top: 52%;
-            width: 100%;
-            color: #fff;
-            font-family: Comic Sans MS, cursive, sans-serif
-        }
-        */
+
     }
     
 
