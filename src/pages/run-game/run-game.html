@@ -12,7 +12,7 @@
   <ion-card>
     <ion-card-content>
         <app-gameTimer [isStaticTimer]="false" [currentNumber]="0"></app-gameTimer>
-        <hr/>
+        <hr class="underscore-timer-result"/>
        
         <span class="mathOperation-font">  <ion-icon name="calculator"></ion-icon> 
           <span><b>{{mathOperationAsString}} <ion-icon name="md-bulb"></ion-icon></b></span>
@@ -47,7 +47,7 @@
               </div>
             </ion-buttons>
           </ion-row>
-          <ion-row justify-content-center align-items-center style="height: 100%">
+          <ion-row #downSection justify-content-center align-items-center style="height: 100%;">
             <ion-buttons *ngFor="let answerButtonSc of answerButtonsSecondSection; let i = index" [attr.data-index]="i">
               <div *ngIf="i == 0">
                 <button 
@@ -73,10 +73,9 @@
             </ion-buttons>
           </ion-row>
       </ion-grid>
-      <button #confiramtionButton ion-button full round (click)="tapConfirmAndGoToNext()" class="confirmationButton">
-          <span *ngIf="!chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> Please choose your answer</ion-icon></span>
-          <span *ngIf="chosedNumber"><ion-icon name="md-arrow-forward" confiramtionButton> tap and confirm</ion-icon></span>
-        </button>
+      <ion-fab right bottom >
+          <button #confiramtionButton (click)="tapConfirmAndGoToNext()" class="confirmationButton" ion-fab ><ion-icon name="md-checkmark"></ion-icon></button>
+      </ion-fab>
    </ion-card-content>
   </ion-card>
 

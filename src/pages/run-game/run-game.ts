@@ -16,6 +16,7 @@ import { MathResultModel } from '../../models/mathResult-model';
 export class RunGamePage {
 
   @ViewChild('confiramtionButton', {read: ElementRef}) confiramtionButton;
+  @ViewChild('downSection', {read: ElementRef}) downSection;
 
   private readonly maxGameCount: number = 5;
 
@@ -91,9 +92,14 @@ export class RunGamePage {
     me.selectedAnswerButton = (me.selectedAnswerButton === answerValue ? null : answerValue); 
     me.chosedNumber = answerValue;
 
-    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'padding', '30px');
+    me.render.setElementStyle(me.downSection.nativeElement, 'margin-bottom', '4em');
+
+    //me.render.setElementStyle(me.confiramtionButton.nativeElement, 'padding', '30px');
+    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'height', '4.5em');
+    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'width', '4.5em');
+
     me.render.setElementStyle(me.confiramtionButton.nativeElement, 'opacity', '1');
-    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'background-color', '#af5139');
+    me.render.setElementStyle(me.confiramtionButton.nativeElement, 'background-color', 'rgb(156, 153, 51)');
   };
  
   isActiveAnswereButton(button) {

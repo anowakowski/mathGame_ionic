@@ -8,12 +8,10 @@ page-run-game {
         dark:       #222,
         lightdark:  #363636
       );
-
-    $background-color: rgb(0, 0, 0);
     
     .mathOperation-font{
         text-align: center;
-        font-size: 2.5em;
+        font-size: 2.0em;
         font-family: Comic Sans MS, cursive, sans-serif; 
         font-style: italic;
         color: grey;
@@ -39,9 +37,13 @@ page-run-game {
     }
 
     .confirmationButton{
-        opacity: 0.4;
+        opacity: 0;
         transition: 0.3s cubic-bezier(0.47, 0, 0.75, 0.72); 
-        background-color: #86584c
+        background-color: rgb(156, 153, 51);
+    }
+
+    .resize-card{
+        transition: 0.3s cubic-bezier(0.47, 0, 0.75, 0.72); 
     }
 
     .button-round-ios {
@@ -56,9 +58,9 @@ page-run-game {
     }
 
     .button-large-ios {
-        height: 4.3em;
-        width: 4.3em;
-        font-size: 2.3rem;
+        height: 4.0em;
+        width: 4.0em;
+        font-size: 2.0rem;
         padding: 0 1em;
         font-family: Comic Sans MS, cursive, sans-serif !important; 
     }
@@ -86,6 +88,10 @@ page-run-game {
   
         }
 
+    }
+
+    .underscore-timer-result{
+        background: #f4f4f4;
     }
     
 
