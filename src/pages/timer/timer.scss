@@ -3,7 +3,7 @@ page-timer {
 }
 .progress-wrapper {
     position: relative;
-    margin: 20px auto;
+    margin: 22px auto;
     font-size: 21px;
     width: 150px;
   }
@@ -16,6 +16,7 @@ page-timer {
     font-size: 1em;
     text-align: center;
     font-weight: 100;
+    
   }
 
   .current {
@@ -23,4 +24,7 @@ page-timer {
     color: #bbb;
     font-weight: 100;
     line-height: 1;
+    color: rgb(122, 25, 212);
+    font-family: Comic Sans MS, sans-serif;   
+    font-style: bold;
   } 

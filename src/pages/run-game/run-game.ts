@@ -63,7 +63,7 @@ export class RunGamePage {
 
     let mathResultAnswers:Array<MathResultModel> = me.gameService.getResultAnswers(me.runGameModel);
     let correctResult:MathResultModel = _.find(mathResultAnswers, m => m.isCorrectNumber);
-    let  answerButtons: Array<MathResultModel>;
+    let answerButtons: Array<MathResultModel>;
 
     me.mathOperationAsString = correctResult.mathOperationAsString
     me.correctResult = correctResult.result
