@@ -3,4 +3,5 @@ export class MathResultModel {
     public position:string;
     public isCorrectNumber:boolean;
     public mathOperationAsString:string;
+    public className:string;
 }

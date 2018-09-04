@@ -17,7 +17,7 @@ export class MathResultAnswers {
         let answers: Array<number> = this.getDifferences(correctResult, 5);
 
         this.prepareAnswers(answers, mathResults, correctResult, mathOperation);
-        this.getAnswerPosition(mathResults);
+        this.getAnswerPositionWithClassName(mathResults);
 
         return mathResults;
     }
@@ -55,13 +55,16 @@ export class MathResultAnswers {
         return answers;
     }
 
-    private getAnswerPosition(mathResults:Array<MathResultModel>){
-        let answerPositions:number[] = [1,2,3,4];
+    private getAnswerPositionWithClassName(mathResults:Array<MathResultModel>){
+        let answerPositions:number[] = [0,1,2,3];
         let shuffledPositons:number[] = _.shuffle(answerPositions);
+        let buttonColors:string[] = ['answerButtonColor1','answerButtonColor2', 'answerButtonColor3', 'answerButtonColor4'];
+        let shuffledColors:string[] = _.shuffle(buttonColors);
 
         _.forEach(shuffledPositons, shufflePos => {
            _.forEach(mathResults, mathResult => {
                 if (mathResult.position === null || mathResult.position === undefined || mathResult.position === shufflePos){
+                    mathResult.className = shuffledColors[shufflePos];
                     mathResult.position = shufflePos;
                     return false;
                 }
@@ -69,7 +72,7 @@ export class MathResultAnswers {
         });
 
     }
-
+    
     private getRandomNumber(range:number):number{
         return Math.floor(Math.random() * range) + 1;
     }

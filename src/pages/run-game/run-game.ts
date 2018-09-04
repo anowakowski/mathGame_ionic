@@ -70,8 +70,8 @@ export class RunGamePage {
     me.mathType = me.runGameModel.gameType.name;
     answerButtons = _.sortBy(mathResultAnswers, m => m.position);
 
-    me.answerButtonsFirstSection = _.filter(answerButtons, ab => ab.position <= 2);
-    me.answerButtonsSecondSection = _.filter(answerButtons, ab => ab.position > 2);
+    me.answerButtonsFirstSection = _.filter(answerButtons, ab => ab.position <= 1);
+    me.answerButtonsSecondSection = _.filter(answerButtons, ab => ab.position >= 2);
  }
 
   tapConfirmAndGoToNext(){

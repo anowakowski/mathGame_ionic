@@ -27,6 +27,7 @@
               <div *ngIf="i == 0">
                 <button 
                   style="margin-right:1.0em;" 
+                  [ngClass]="answerButtonFs.className"
                   [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
                   (click)="tappedAnswerButton(answerButtonFs)" 
                   ion-button round outline large>
@@ -37,6 +38,7 @@
               </div>
               <div *ngIf="i == 1">
                 <button
+                [ngClass]="answerButtonFs.className"
                   [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
                   (click)="tappedAnswerButton(answerButtonFs)"  
                   ion-button round outline large>
@@ -51,6 +53,7 @@
             <ion-buttons *ngFor="let answerButtonSc of answerButtonsSecondSection; let i = index" [attr.data-index]="i">
               <div *ngIf="i == 0">
                 <button 
+                [ngClass]="answerButtonSc.className"
                   [ngClass]="{activeButton: isActiveAnswereButton(answerButtonSc.result)}" 
                   (click)="tappedAnswerButton(answerButtonSc)"                   
                   style="margin-right:1.0em;"  
@@ -62,6 +65,7 @@
               </div>
               <div *ngIf="i == 1">
                 <button
+                [ngClass]="answerButtonSc.className"
                 [ngClass]="{activeButton: isActiveAnswereButton(answerButtonSc.result)}" 
                 (click)="tappedAnswerButton(answerButtonSc)"   
                   ion-button round outline large>
