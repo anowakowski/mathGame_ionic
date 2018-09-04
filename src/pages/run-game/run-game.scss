@@ -12,7 +12,7 @@ page-run-game {
     .mathOperation-font{
         text-align: center;
         font-size: 2.0em;
-        font-family: Comic Sans MS, cursive, sans-serif; 
+        font-family: Comic Sans MS, sans-serif; 
         font-style: italic;
         color: grey;
         padding-left: 5px;
@@ -62,22 +62,22 @@ page-run-game {
         width: 4.0em;
         font-size: 2.0rem;
         padding: 0 1em;
-        font-family: Comic Sans MS, cursive, sans-serif !important; 
+        font-family: Comic Sans MS, sans-serif !important; 
     }
 
     .content-ios {
         color: #000;
         background-color: rgb(140, 182, 132);
-        background-image: url('../../assets/imgs/math_background.jpg');
+        background-image: url('../assets/imgs/math_background.jpg');
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: 140% 100%;
     }
 
     .resultVaueText-size{
         font-size: 2.0em;
     }
     .text-fontStyle{
-        font-family: Comic Sans MS, cursive, sans-serif !important;
+        font-family: Comic Sans MS, sans-serif !important;
     }
     .card-background-page {
     
