@@ -25,6 +25,7 @@
             <ion-buttons *ngFor="let answerButtonFs of answerButtonsFirstSection; let i = index" [attr.data-index]="i">
               <div *ngIf="i == 0">
                 <button 
+                  [disabled] = "isConfirmed()"
                   style="margin-right:1.0em;" 
                   [class.activeButton]="isActiveAnswereButton(answerButtonFs.result)"
                   [ngClass]="answerButtonFs.className" 
@@ -37,6 +38,7 @@
               </div>
               <div *ngIf="i == 1">
                 <button
+                  [disabled] = "isConfirmed()"
                   [class.activeButton]="isActiveAnswereButton(answerButtonFs.result)"
                   [ngClass]="answerButtonFs.className" 
                   (click)="tappedAnswerButton(answerButtonFs)"  
@@ -52,6 +54,7 @@
             <ion-buttons *ngFor="let answerButtonSc of answerButtonsSecondSection; let i = index" [attr.data-index]="i">
               <div *ngIf="i == 0">
                 <button 
+                  [disabled] = "isConfirmed()"
                   [class.activeButton]="isActiveAnswereButton(answerButtonSc.result)"
                   [ngClass]="answerButtonSc.className" 
                   (click)="tappedAnswerButton(answerButtonSc)"                   
@@ -64,6 +67,7 @@
               </div>
               <div *ngIf="i == 1">
                 <button
+                [disabled] = "isConfirmed()"
                 [class.activeButton]="isActiveAnswereButton(answerButtonSc.result)"
                 [ngClass]="answerButtonSc.className" 
                 (click)="tappedAnswerButton(answerButtonSc)"   

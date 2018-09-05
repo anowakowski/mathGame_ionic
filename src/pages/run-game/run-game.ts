@@ -39,6 +39,8 @@ export class RunGamePage {
   gameCountToDisplay: number;
   gameScoreToDisplay:number;
 
+  isConfiramtedAnswer:boolean = false;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -80,7 +82,7 @@ export class RunGamePage {
     if (me.chosedNumber === undefined){
       return;
     }
-
+    me.isConfiramtedAnswer = true;
     me.verifyChosedNumber();
     me.prepareChoosenNumberAlert();
   }
@@ -105,6 +107,10 @@ export class RunGamePage {
   isActiveAnswereButton(button) {
     return this.selectedAnswerButton === button;
   };
+
+  isConfirmed():boolean{
+    return this.isConfiramtedAnswer;
+  }
 
   private nextPageProcessing(): void {
     const me = this;
@@ -135,7 +141,7 @@ export class RunGamePage {
 
     let toast = me.toastCtrl.create({
       message: me.isCorrectNumber ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
-      duration: 2500,
+      duration: 200000,
       position: 'bottom',
     });
 
