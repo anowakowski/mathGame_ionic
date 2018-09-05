@@ -141,7 +141,7 @@ export class RunGamePage {
 
     let toast = me.toastCtrl.create({
       message: me.isCorrectNumber ? " :-) Great!, Your choose is correct!!!" : " :-( Sorry, but your choice is incorrect",
-      duration: 200000,
+      duration: 1700,
       position: 'bottom',
     });
 

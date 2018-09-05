@@ -57,7 +57,26 @@ page-run-game {
         color: #488aff;
     }
 
+    .button-round-md {
+        border-radius: 70px;
+        padding: 0 1.5rem;
+    }
+
+    .button-outline-md {
+        border-width: 2px;
+        border-color: #488aff;
+        color: #488aff;
+    }
+
     .button-large-ios {
+        height: 4.0em;
+        width: 4.0em;
+        font-size: 2.0rem;
+        padding: 0 1em;
+        font-family: Comic Sans MS, sans-serif !important; 
+    }   
+
+    .button-large-md {
         height: 4.0em;
         width: 4.0em;
         font-size: 2.0rem;
@@ -66,6 +85,14 @@ page-run-game {
     }
 
     .content-ios {
+        color: #000;
+        background-color: rgb(140, 182, 132);
+        background-image: url('../assets/imgs/math_background.jpg');
+        background-repeat: no-repeat;
+        background-size: 140% 100%;
+    }
+
+    .content-md {
         color: #000;
         background-color: rgb(140, 182, 132);
         background-image: url('../assets/imgs/math_background.jpg');
