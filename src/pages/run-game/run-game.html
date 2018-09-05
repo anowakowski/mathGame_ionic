@@ -26,8 +26,8 @@
               <div *ngIf="i == 0">
                 <button 
                   style="margin-right:1.0em;" 
-                  [ngClass]="answerButtonFs.className"
-                  [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
+                  [class.activeButton]="isActiveAnswereButton(answerButtonFs.result)"
+                  [ngClass]="answerButtonFs.className" 
                   (click)="tappedAnswerButton(answerButtonFs)" 
                   ion-button round outline large>
                     <span class="resultVaueText-size text-fontStyle">
@@ -37,8 +37,8 @@
               </div>
               <div *ngIf="i == 1">
                 <button
-                [ngClass]="answerButtonFs.className"
-                  [ngClass]="{activeButton: isActiveAnswereButton(answerButtonFs.result)}" 
+                  [class.activeButton]="isActiveAnswereButton(answerButtonFs.result)"
+                  [ngClass]="answerButtonFs.className" 
                   (click)="tappedAnswerButton(answerButtonFs)"  
                   ion-button round outline large>
                   <span class="resultVaueText-size text-fontStyle">
@@ -52,8 +52,8 @@
             <ion-buttons *ngFor="let answerButtonSc of answerButtonsSecondSection; let i = index" [attr.data-index]="i">
               <div *ngIf="i == 0">
                 <button 
-                [ngClass]="answerButtonSc.className"
-                  [ngClass]="{activeButton: isActiveAnswereButton(answerButtonSc.result)}" 
+                  [class.activeButton]="isActiveAnswereButton(answerButtonSc.result)"
+                  [ngClass]="answerButtonSc.className" 
                   (click)="tappedAnswerButton(answerButtonSc)"                   
                   style="margin-right:1.0em;"  
                   ion-button round outline large>
@@ -64,8 +64,8 @@
               </div>
               <div *ngIf="i == 1">
                 <button
-                [ngClass]="answerButtonSc.className"
-                [ngClass]="{activeButton: isActiveAnswereButton(answerButtonSc.result)}" 
+                [class.activeButton]="isActiveAnswereButton(answerButtonSc.result)"
+                [ngClass]="answerButtonSc.className" 
                 (click)="tappedAnswerButton(answerButtonSc)"   
                   ion-button round outline large>
                   <span class="resultVaueText-size text-fontStyle">
