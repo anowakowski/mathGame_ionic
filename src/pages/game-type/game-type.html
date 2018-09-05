@@ -3,24 +3,31 @@
     <ion-title>gameType</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
-<app-gameTimer [isStaticTimer]="true" [currentNumber]="1"></app-gameTimer>
+<ion-content class="card-background-page">
+  <ion-card>
+      <ion-card-content>
+        <app-gameTimer [isStaticTimer]="true" [currentNumber]="1"></app-gameTimer>
+      </ion-card-content>
+  </ion-card>
+
     <ion-card>
       <ion-card-header>
-        First, tap game type
+        <span class="gameType-font gameType-header-font">First, tap game type</span>
       </ion-card-header>
       <ion-card-content>
-          <ion-list>
-              <button ion-item *ngFor="let gameType of gamesTypes" (click)="tappedGameTypeItem($event, gameType)">{{gameType.name}}</button>
-          </ion-list>          
+        <ion-buttons *ngFor="let gameType of gamesTypes">
+            <button 
+              (click)="tappedGameTypeItem($event, gameType)"
+              ion-button round outline large>
+              {{gameType.name}}
+            </button>
+        </ion-buttons>
+     
       </ion-card-content>
     </ion-card>
     <ion-card>
-      <ion-card-header>
-        Next,
-      </ion-card-header>
       <ion-card-content>
-        you need to choose a game level
+          <span class="gameType-font" >Next, you need to choose a game level</span>
       </ion-card-content>
     </ion-card>
 
