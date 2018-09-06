@@ -15,60 +15,64 @@
         <span class="gameType-font gameType-header-font">First, tap game type</span>
       </ion-card-header>
       <ion-card-content>
-        <!-- 
+         
           <ion-grid> 
               <ion-row justify-content-center align-items-center style="height: 100%; margin-bottom:1.0em;">
-                <ion-buttons>
-                  <div>
+                <ion-buttons *ngFor="let gameType of gamesTypesSectionOne; let i = index" [attr.data-index]="i">
+                  <div *ngIf="i == 0">
                     <button 
-                      style="margin-right:1.0em;" 
-                   
+                      [disabled] = "isShouldBeDisabled(gameType)"
+                      (click)="tappedGameTypeItem($event, gameType)"
+                      style="margin-right:1.0em;"
+                      class="answerButtonColorAddition"
                       ion-button outline large>
                         <span class="resultVaueText-size text-fontStyle">
-                          +
+                            ( {{gameType.mathSign}} )
                         </span>
                       </button>
+                      </div>
+                  <div *ngIf="i == 1">
                       <button 
-                      style="margin-right:1.0em;" 
+                      [disabled] = "isShouldBeDisabled(gameType)"
+                      (click)="tappedGameTypeItem($event, gameType)"
+                      class="answerButtonColorSubscraption"
                       ion-button round outline large>
                         <span class="resultVaueText-size text-fontStyle">
-                          -
+                          ( {{gameType.mathSign}} )
                         </span>
                       </button>                      
                   </div>
-
                 </ion-buttons>
               </ion-row>
               <ion-row #downSection justify-content-center align-items-center style="height: 100%;">
-                <ion-buttons>
-                  <div>
-                      <button 
-                      style="margin-right:1.0em;" 
+                <ion-buttons *ngFor="let gameType of gamesTypesSectionTwo; let i = index" [attr.data-index]="i">
+                  <div *ngIf="i == 0">
+                      <button
+                      [disabled] = "isShouldBeDisabled(gameType)" 
+                      (click)="tappedGameTypeItem($event, gameType)"
+                      style="margin-right:1.0em;"
+                      class="answerButtonColorDivide"
                       ion-button round outline large>
                         <span class="resultVaueText-size text-fontStyle">
-                          /
+                          ( {{gameType.mathSign}} )
                         </span>
                       </button>
-                      <button 
-                      style="margin-right:1.0em;" 
+                  </div>
+                  <div *ngIf="i == 1">
+                      <button
+                      [disabled] = "isShouldBeDisabled(gameType)" 
+                      (click)="tappedGameTypeItem($event, gameType)"
+                      class="answerButtonColorMultiplication"
                       ion-button outline large>
                         <span class="resultVaueText-size text-fontStyle">
-                          *
+                          ( {{gameType.mathSign}} )
                         </span>
                       </button>                      
                   </div>
                 </ion-buttons>
               </ion-row>
           </ion-grid>
-          -->
-  
-        <ion-buttons *ngFor="let gameType of gamesTypes">
-          <button 
-              (click)="tappedGameTypeItem($event, gameType)"
-              ion-button round outline large>
-              {{gameType.mathSign}}
-            </button>
-        </ion-buttons>
+          
      
       </ion-card-content>
     </ion-card>

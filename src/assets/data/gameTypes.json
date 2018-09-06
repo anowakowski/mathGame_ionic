@@ -2,21 +2,25 @@
     {
       "id":"1",
       "name":"Addition",
-      "mathSign": "+"
+      "mathSign": "+",
+      "displaySection": "1"
     },
     {
       "id":"2",
       "name":"Subtraction",
-      "mathSign": "-"
+      "mathSign": "-",
+      "displaySection": "1"
     },
     {
       "id":"3",
       "name":"Division",
-      "mathSign": "/"
+      "mathSign": "/",
+      "displaySection": "2"
     },
     {
       "id":"4",
       "name":"Multiplication",
-      "mathSign": "*"
+      "mathSign": "*",
+      "displaySection": "2"
     }        
 ]

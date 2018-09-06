@@ -5,6 +5,7 @@ import { GameLevelPage } from '../pages';
 import { RunGameModel } from '../../models/runGame-model';
 import { GameTypeModel } from '../../models/gameType-model';
 
+import * as _ from 'lodash';
 
 @Component({
   selector: 'page-game-type',
@@ -12,7 +13,8 @@ import { GameTypeModel } from '../../models/gameType-model';
 })
 export class GameTypePage {
 
-  gamesTypes: GameTypeModel[];
+  gamesTypesSectionOne: GameTypeModel[];
+  gamesTypesSectionTwo: GameTypeModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private gameService: GameService) {
   }
@@ -27,8 +29,21 @@ export class GameTypePage {
   getGameType(){
     const me = this;
     me.gameService.getGameType().then(response => {
-      me.gamesTypes = response;
+      let gameType:Array<GameTypeModel> = response;
+
+      me.gamesTypesSectionOne = _.filter(gameType, gt => gt.displaySection == 1);
+      me.gamesTypesSectionTwo = _.filter(gameType, gt => gt.displaySection == 2);
+
     });    
+  }
+
+  isShouldBeDisabled(gameType:GameTypeModel):boolean{
+    if (gameType.name != "Addition"){
+      return true;
+    } else{
+      return false;
+    }
+
   }
 
   tappedGameTypeItem(event, gameType){

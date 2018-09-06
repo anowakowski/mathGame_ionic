@@ -31,12 +31,50 @@ page-game-type {
         text-align: center;
         font-size: 1.0em;
         font-family: Comic Sans MS, sans-serif; 
-        //font-style: italic;
         color:#e0e0e0;
         padding-left: 5px;
     }
 
     .gameType-font.gameType-header-font{
         font-size: 1.7em;
+    }
+
+    .button-large-ios {
+        height: 3.5em;
+        width: 3.5em;
+        font-size: 2.5rem;
+        color:#e0e0e0;
+        
+        //padding: 0 1em;
+        font-family: Comic Sans MS, sans-serif !important; 
+    }   
+
+    .button-large-md {
+        height: 4.0em;
+        width: 4.0em;
+        font-size: 2.0rem;
+        color:#e0e0e0;
+        padding: 0 1em;
+        font-family: Comic Sans MS, sans-serif !important; 
+    }
+
+    .answerButtonColorAddition{
+        border-color: #37e8e5;
+        color: #37e8e5;
+    }
+
+    .answerButtonColorSubscraption{
+        border-color: #c75a6e;
+        color: #c75a6e;
+    }
+
+    .answerButtonColorDivide{
+        border-color: #dbdd4d;
+        color: #dbdd4d;
+    }
+
+    .answerButtonColorMultiplication{
+        border-color: #5970ee;
+        color: #5970ee;
     }
 }
