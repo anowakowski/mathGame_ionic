@@ -15,11 +15,58 @@
         <span class="gameType-font gameType-header-font">First, tap game type</span>
       </ion-card-header>
       <ion-card-content>
+        <!-- 
+          <ion-grid> 
+              <ion-row justify-content-center align-items-center style="height: 100%; margin-bottom:1.0em;">
+                <ion-buttons>
+                  <div>
+                    <button 
+                      style="margin-right:1.0em;" 
+                   
+                      ion-button outline large>
+                        <span class="resultVaueText-size text-fontStyle">
+                          +
+                        </span>
+                      </button>
+                      <button 
+                      style="margin-right:1.0em;" 
+                      ion-button round outline large>
+                        <span class="resultVaueText-size text-fontStyle">
+                          -
+                        </span>
+                      </button>                      
+                  </div>
+
+                </ion-buttons>
+              </ion-row>
+              <ion-row #downSection justify-content-center align-items-center style="height: 100%;">
+                <ion-buttons>
+                  <div>
+                      <button 
+                      style="margin-right:1.0em;" 
+                      ion-button round outline large>
+                        <span class="resultVaueText-size text-fontStyle">
+                          /
+                        </span>
+                      </button>
+                      <button 
+                      style="margin-right:1.0em;" 
+                      ion-button outline large>
+                        <span class="resultVaueText-size text-fontStyle">
+                          *
+                        </span>
+                      </button>                      
+                  </div>
+                </ion-buttons>
+              </ion-row>
+          </ion-grid>
+          -->
+  
         <ion-buttons *ngFor="let gameType of gamesTypes">
-            <button 
+          <button 
               (click)="tappedGameTypeItem($event, gameType)"
               ion-button round outline large>
-              {{gameType.name}}
+              {{gameType.mathSign}}
             </button>
         </ion-buttons>
      
