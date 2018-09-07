@@ -11,6 +11,9 @@ import { GameLevelModel } from '../../models/gameLevel-model';
 })
 export class GameLevelPage {
   private runGameModel: RunGameModel;
+  selectedLevel: number = 1;
+  brightness: number = 20;
+
   gameLevels: GameLevelModel[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private gameService: GameService) {
     this.runGameModel = navParams.data as RunGameModel;

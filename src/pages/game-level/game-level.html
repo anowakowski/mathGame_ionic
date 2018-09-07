@@ -4,14 +4,35 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-    <app-gameTimer [isStaticTimer]="true" [currentNumber]="2"></app-gameTimer>
-    <ion-card>
+  <ion-card>
+    <ion-card-content>
+      <app-gameTimer [isStaticTimer]="true" [currentNumber]="2"></app-gameTimer>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
       <ion-card-header>
         OK, the last one things
       </ion-card-header>
       <ion-card-content>
-        please, choose your start level and run a game.
-        <button *ngFor="let gameLevel of gameLevels" ion-button full (click)="tappedGameLevel(gameLevel)">{{gameLevel.name}}</button>
+       
+        <!-- <button *ngFor="let gameLevel of gameLevels" ion-button full (click)="tappedGameLevel(gameLevel)">{{gameLevel.name}}</button>-->
+        
+      <div>
+        <ion-list>
+          <ion-list-header>
+            please, tap a slide below
+            <ion-badge item-end color="secondary">Level: {{selectedLevel}}</ion-badge>
+          </ion-list-header>
+          <ion-item>
+            <ion-range min="0" max="3" step="1" snaps="true" [(ngModel)]="selectedLevel" color="secondary">
+              <ion-icon range-left small color="secondary" name="md-podium"></ion-icon>
+              <ion-icon range-right color="secondary" name="md-podium"></ion-icon>
+            </ion-range>
+          </ion-item>
+        </ion-list> 
+
+        <button ion-button full round outline large>connfirm your level and go</button>
+      </div>
       </ion-card-content>
     </ion-card>
     <ion-card>
@@ -21,5 +42,7 @@
       <ion-card-content>
         is only samary
       </ion-card-content>
-    </ion-card>
+  </ion-card>
+
+
 </ion-content>
