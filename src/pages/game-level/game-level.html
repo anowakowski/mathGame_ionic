@@ -3,14 +3,14 @@
     <ion-title>gameLevel</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="card-background-page">
   <ion-card>
     <ion-card-content>
       <app-gameTimer [isStaticTimer]="true" [currentNumber]="2"></app-gameTimer>
     </ion-card-content>
   </ion-card>
   <ion-card>
-      <ion-card-header>
+      <ion-card-header class="gameType-font gameType-header-font">
         OK, the last one things
       </ion-card-header>
       <ion-card-content>
@@ -19,9 +19,9 @@
         
       <div>
         <ion-list>
-          <ion-list-header>
-            please, tap a slide below
-            <ion-badge item-end color="secondary">Level: {{selectedLevel}}</ion-badge>
+          <ion-list-header class="gameType-font">
+            tap your level
+            <ion-badge class="ion-badge-resize" item-end color="secondary">Level: {{selectedLevel}}</ion-badge>
           </ion-list-header>
           <ion-item>
             <ion-range min="0" max="3" step="1" snaps="true" [(ngModel)]="selectedLevel" color="secondary">
@@ -31,16 +31,13 @@
           </ion-item>
         </ion-list> 
 
-        <button ion-button full round outline large>connfirm your level and go</button>
+        <button ion-button outline large>GO</button>
       </div>
       </ion-card-content>
     </ion-card>
     <ion-card>
-      <ion-card-header>
-        Next, 
-      </ion-card-header>
       <ion-card-content>
-        is only samary
+        <span class="gameType-font" >Next, is just only summary</span>
       </ion-card-content>
   </ion-card>
 
