@@ -46,7 +46,7 @@ page-game-level {
 
     .button-large-ios {
         height: 3.5em;
-        width: 3.5em;
+        width: 8.5em;
         font-size: 2.5rem;
         color:#e0e0e0;
         font-family: Comic Sans MS, sans-serif !important; 
@@ -65,5 +65,10 @@ page-game-level {
         padding: 5px 8px;
         font-size: 1.5rem;
 
+    }
+
+    .burron-color{
+        border-color: #dbdd4d;
+        color: #dbdd4d;
     }
 }
