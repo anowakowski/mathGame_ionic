@@ -5,6 +5,8 @@ import { GameService } from '../../shared/shared';
 import { RunGameModel } from '../../models/runGame-model';
 import { GameLevelModel } from '../../models/gameLevel-model';
 
+import * as _ from 'lodash';
+
 @Component({
   selector: 'page-game-level',
   templateUrl: 'game-level.html',
@@ -30,9 +32,12 @@ export class GameLevelPage {
     })
   }
 
-  tappedGameLevel(gameLevel){
+  tappedGameLevel(){
     const me = this;
-    me.runGameModel.gameLevel = gameLevel;
+
+    let selectedGameLevel: GameLevelModel = _.find(me.gameLevels, gl => gl.id == me.selectedLevel);
+
+    me.runGameModel.gameLevel = selectedGameLevel;
     me.navCtrl.push(GameInfoPage, me.runGameModel);
   }
 }
