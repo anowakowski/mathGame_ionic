@@ -1,4 +1,7 @@
 page-game-level {
+
+    $bageColor: #fa871b;
+
     .content-ios {
         color: #000;
         background-color: rgb(140, 182, 132);
@@ -16,7 +19,6 @@ page-game-level {
     }
 
     .card-background-page {
-    
         ion-card {
             position: relative;
             text-align: center;
@@ -54,7 +56,7 @@ page-game-level {
 
     .button-large-md {
         height: 4.0em;
-        width: 4.0em;
+        width: 100%;
         font-size: 2.0rem;
         color:#e0e0e0;
         padding: 0 1em;
@@ -62,9 +64,13 @@ page-game-level {
     }
 
     .ion-badge-resize {
-        padding: 5px 8px;
-        font-size: 1.5rem;
-
+        padding: 7px 8px;
+        font-size: 1.9rem;
+        //background-color: $bageColor;
+    }
+    
+    .level-slider-color{
+        color: $bageColor;
     }
 
     .burron-color{
