@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RunGamePage, GameInfoPage } from '../pages';
 import { GameService } from '../../shared/shared';
 import { RunGameModel } from '../../models/runGame-model';
@@ -17,7 +17,7 @@ export class GameLevelPage {
   brightness: number = 20;
 
   gameLevels: GameLevelModel[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private gameService: GameService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private gameService: GameService, public alertCtrl: AlertController) {
     this.runGameModel = navParams.data as RunGameModel;
   }
 
@@ -35,9 +35,33 @@ export class GameLevelPage {
   tappedGameLevel(){
     const me = this;
 
-    let selectedGameLevel: GameLevelModel = _.find(me.gameLevels, gl => gl.id == me.selectedLevel);
+    if (me.validateChosenLevel()){
+      let selectedGameLevel: GameLevelModel = _.find(me.gameLevels, gl => gl.id == me.selectedLevel);
 
-    me.runGameModel.gameLevel = selectedGameLevel;
-    me.navCtrl.push(GameInfoPage, me.runGameModel);
+      me.runGameModel.gameLevel = selectedGameLevel;
+      me.navCtrl.push(GameInfoPage, me.runGameModel);
+    } else{
+      me.showLevelAlert();
+    }
+  }
+
+  private validateChosenLevel():boolean {
+    const me = this;
+
+    if (me.selectedLevel == 0) {
+      return false
+    } else{
+      return true;
+    }
+  }
+
+  private showLevelAlert(){
+
+    const alert = this.alertCtrl.create({
+      title: 'wrong Level',
+      subTitle: 'You must choose level greater than 0',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }
