@@ -6,11 +6,16 @@
       </button>    
     <ion-title>dashboard-page</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-  <h3>Welcome, please Tap button below to start game</h3>  
-  <button ion-button full (click)="goToGameInfo()">Start a game</button>
+ <ion-content class="card-background-page">
+    <ion-card>
+        <ion-card-header>
+            <span class="gameType-font gameType-header-font">Welcome to math game</span>
+          </ion-card-header>      
+        <ion-card-content>
+            <p class="gameType-font">please Tap button below to start game</p>
+            <button ion-button outline large class="burron-color" (click)="goToGameInfo()">Start a game</button>          
+          </ion-card-content>
+    </ion-card>
 </ion-content>

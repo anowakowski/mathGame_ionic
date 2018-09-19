@@ -1,3 +1,104 @@
 page-dashboard {
-    $background-color: rgb(0, 0, 0);
+
+    $bageColor: #fa871b;
+
+    .button-round-ios {
+        border-radius: 70px;
+        padding: 0 1.5rem;
+    }
+
+    .button-outline-ios {
+        border-width: 2px;
+        border-color: #488aff;
+        color: #488aff;
+    }
+
+    .button-round-md {
+        border-radius: 70px;
+        padding: 0 1.5rem;
+    }
+
+    .button-outline-md {
+        border-width: 2px;
+        border-color: #488aff;
+        color: #488aff;
+    }
+
+    .button-large-ios {
+        height: 4.0em;
+        width: 4.0em;
+        font-size: 2.0rem;
+        padding: 0 1em;
+        font-family: Comic Sans MS, sans-serif !important; 
+    }   
+
+    .button-large-md {
+        height: 4.0em;
+        width: 4.0em;
+        font-size: 2.0rem;
+        padding: 0 1em;
+        font-family: Comic Sans MS, sans-serif !important; 
+    }
+
+    .content-ios {
+        color: #000;
+        background-color: rgb(140, 182, 132);
+        background-image: url('../assets/imgs/math_background.jpg');
+        background-repeat: no-repeat;
+        background-size: 140% 100%;
+    }
+
+    .content-md {
+        color: #000;
+        background-color: rgb(140, 182, 132);
+        background-image: url('../assets/imgs/math_background.jpg');
+        background-repeat: no-repeat;
+        background-size: 140% 100%;
+    }
+
+    .card-background-page {
+        ion-card {
+            position: relative;
+            text-align: center;
+            background: rgba(31, 29, 29, 0.96);
+        }
+    }
+
+    .card-background-page .item-ios {
+        background-color: rgba(31, 29, 29, 0);
+        margin-bottom: 0.7em;
+    }
+
+    .card-background-page .item-md {
+        background-color: rgba(31, 29, 29, 0);
+    }    
+
+    .gameType-font{
+        text-align: center;
+        font-size: 1.2em;
+        font-family: Comic Sans MS, sans-serif; 
+        color:#e0e0e0;
+    }
+
+    .gameType-font.gameType-header-font{
+        font-size: 1.7em;
+    }
+
+    .button-large-ios {
+        height: 3.5em;
+        width: 8.5em;
+        font-size: 2.5rem;
+        color:#e0e0e0;
+        font-family: Comic Sans MS, sans-serif !important; 
+    }   
+
+    .button-large-md {
+        height: 4.0em;
+        width: 100%;
+        font-size: 2.0rem;
+        color:#e0e0e0;
+        padding: 0 1em;
+        font-family: Comic Sans MS, sans-serif !important; 
+    }
+  
 }
