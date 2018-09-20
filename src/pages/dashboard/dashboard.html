@@ -11,11 +11,26 @@
  <ion-content class="card-background-page">
     <ion-card>
         <ion-card-header>
-            <span class="gameType-font gameType-header-font">Welcome to math game</span>
+            <span class="gameType-font gameType-header-font">Welcome to Math Game</span>
           </ion-card-header>      
         <ion-card-content>
-            <p class="gameType-font">please Tap button below to start game</p>
+            <ion-icon class="calculator-icon" ios="ios-calculator" md="md-calculator"></ion-icon>
+            <p class="gameType-font">please, Tap a button bellow to start the Game</p>
             <button ion-button outline large class="burron-color" (click)="goToGameInfo()">Start a game</button>          
           </ion-card-content>
     </ion-card>
+
+    <ion-card>
+        <ion-card-content>
+            <p class="gameType-font mathgame-description-content">- Choose the math type [+] [-] [*] [/]</p>
+            <p class="gameType-font mathgame-description-content">
+              <span>- Chose your level from 1 to 3</span>
+
+
+            </p>
+            <p class="gameType-font mathgame-description-content">- Answer for the 5 math tasks in short time <ion-icon name="speedometer"></ion-icon></p>
+            <p class="gameType-font mathgame-description-content">- Get score for correct answer 1 - 5 <ion-icon name="ribbon"></ion-icon></p>
+            <p class="gameType-font mathgame-description-content">- if answers not correctly you lost one heart  <ion-icon ios="ios-heart" md="md-heart"></ion-icon></p>
+          </ion-card-content>
+    </ion-card>    
 </ion-content>

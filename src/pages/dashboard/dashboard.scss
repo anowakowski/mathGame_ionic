@@ -84,6 +84,12 @@ page-dashboard {
         font-size: 1.7em;
     }
 
+    .gameType-font.mathgame-description-content{
+        font-size: 1.0em;
+        text-align: left;
+    }
+
+
     .button-large-ios {
         height: 3.5em;
         width: 8.5em;
@@ -99,6 +105,12 @@ page-dashboard {
         color:#e0e0e0;
         padding: 0 1em;
         font-family: Comic Sans MS, sans-serif !important; 
+    }
+
+    .calculator-icon {
+        color: white;
+        font-size: 4em;
+        margin-bottom: 0.23em
     }
   
 }
