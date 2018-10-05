@@ -2,6 +2,7 @@ language: node_js
 
 before_script:
  - npm install -g ionic cordova
+ - npm install -g sync-exec
 script:
  #— ionic cordova build browser - prod
  - ionic build
